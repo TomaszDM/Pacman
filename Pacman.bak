@@ -6797,12 +6797,6 @@ repeat
    duch(vxd2,vyd2,7,white,kd2);
    duch(vxd3,vyd3,3,white,kd3);
 
-   delay(100);
-   {P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);}
-
    motion;
 
    x:=x+10*x1;
@@ -6823,6 +6817,12 @@ repeat
    motionduch(vxd3,vyd3,kd3);
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
+
+   delay(100);
+   P(kierunek,0);
+   duch(vxd1,vyd1,0,0,kd1);
+   duch(vxd2,vyd2,0,0,kd2);
+   duch(vxd3,vyd3,0,0,kd3);
 
 
    /////////////////////////////////DUCH GONI///////////////////////////////////////
