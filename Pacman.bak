@@ -5099,8 +5099,8 @@ repeat
                       setcolor(random(10-1+1)+1);
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
-                      xk:=0;
-                      yk:=300;
+                      xk:=20;
+                      yk:=100;
                       km:=1;
                       switch:=2;
                       adel:=true;
@@ -5145,7 +5145,7 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>800 then
+                       if xk>820 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
@@ -5155,12 +5155,12 @@ repeat
                           xk:=xk+400;
                           km:=km+1;
                          end;
-                       if yk>600 then
+                       if yk>400 then
                          begin
                           yk:=yk-300;
                           km:=km-3;
                          end;
-                       if yk<300 then
+                       if yk<100 then
                          begin
                           yk:=yk+300;
                           km:=km+3;
@@ -5180,6 +5180,8 @@ repeat
                              outtextxy(400,550,' Adventure');
                              entertryb:=false;
                              przyciskmap:=chr(1);
+                             xk:=240;
+                             yk:=190;
                           end;
 
                        if graj=true then

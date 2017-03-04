@@ -6633,11 +6633,13 @@ repeat
                  end;
           until entertryb=true;
          end;
-      1 : begin    //play
+
+
+      1 :begin    //play
           setfillstyle(1,black);
           bar(1,1,getmaxx,getmaxy);
-
-          yk:=100;
+          xk:=240;
+          yk:=190;
           setcolor(random(10-1+1)+1);
           settextstyle(TriplexFont,HorizDir,3);
           outtextxy(400,350,'CHOOSE MODE');
@@ -6677,12 +6679,12 @@ repeat
                 if przycisktryb=chr(13) then entermap:=true;
                 if przycisktryb=chr(13) then entertryb:=true;
                 if przycisktryb=chr(27) then entertryb:=true;
-                if yk>200 then
+                if yk>290 then
                   begin
                     yk:=yk-100;
                     kt:=kt-1;
                   end;
-                if yk<100 then
+                if yk<190 then
                   begin
                     yk:=yk+100;
                     kt:=kt+1;
@@ -6703,6 +6705,8 @@ repeat
                       km:=1;
                       switch:=2;
                       adel:=true;
+
+
                       REPEAT
                      // kursormap(xk,yk);
                      if del(adel) then inc(switch);
@@ -6765,6 +6769,7 @@ repeat
                          end;
                         if przyciskmap=chr(27) then
                            begin
+                             kursormenuzmaz(yk,xk);
                              setfillstyle(1,black);
                              bar(1,1,getmaxx,getmaxy);
                              entermap:=false;
