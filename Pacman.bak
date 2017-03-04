@@ -6633,11 +6633,13 @@ repeat
                  end;
           until entertryb=true;
          end;
-      1 : begin    //play
+
+
+      1 :begin    //play
           setfillstyle(1,black);
           bar(1,1,getmaxx,getmaxy);
-
-          yk:=100;
+          xk:=240;
+          yk:=190;
           setcolor(random(10-1+1)+1);
           settextstyle(TriplexFont,HorizDir,3);
           outtextxy(400,350,'CHOOSE MODE');
@@ -6677,12 +6679,12 @@ repeat
                 if przycisktryb=chr(13) then entermap:=true;
                 if przycisktryb=chr(13) then entertryb:=true;
                 if przycisktryb=chr(27) then entertryb:=true;
-                if yk>200 then
+                if yk>290 then
                   begin
                     yk:=yk-100;
                     kt:=kt-1;
                   end;
-                if yk<100 then
+                if yk<190 then
                   begin
                     yk:=yk+100;
                     kt:=kt+1;
@@ -6703,6 +6705,8 @@ repeat
                       km:=1;
                       switch:=2;
                       adel:=true;
+
+
                       REPEAT
                      // kursormap(xk,yk);
                      if del(adel) then inc(switch);
@@ -6765,6 +6769,7 @@ repeat
                          end;
                         if przyciskmap=chr(27) then
                            begin
+                             kursormenuzmaz(yk,xk);
                              setfillstyle(1,black);
                              bar(1,1,getmaxx,getmaxy);
                              entermap:=false;
@@ -6787,9 +6792,10 @@ repeat
                            if km=1 then //map1
                              begin
                               kk:=1;
-    setfillstyle(1,black);
+
+     setfillstyle(1,black);
      bar(1,1,1279,1023);
-   for i:=3 downto 0 do
+     for i:=3 downto 0 do
      begin
      str(i,c);
      setcolor(random(10-1+1)+1);
@@ -6800,7 +6806,7 @@ repeat
      bar(1,1,1279,1023);
      end;
 
-                                getTime(godz,min,sek,ssek);
+     getTime(godz,min,sek,ssek);
 
 
    vxd1:=-150;
@@ -6820,7 +6826,7 @@ repeat
    repeat
 
 
-   writeln(z);
+   // writeln(z);
    P(kierunek,kolorop);
    duch(vxd1,vyd1,11,white,kd1);
    duch(vxd2,vyd2,7,white,kd2);
@@ -6948,7 +6954,7 @@ repeat
      bestt[1,1,5]:=wena[1,1,5];
     end;
                           end;
-                           if km=2 then   //map2
+                          { if km=2 then   //map2
                              begin
                                                       kk:=1;
     setfillstyle(1,black);
@@ -7772,7 +7778,7 @@ repeat
      bestt[1,6,5]:=wena[1,6,5];
     end;
 
-                             end;
+                             end;}
                          end;
                    until entermap=false;
 

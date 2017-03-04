@@ -6789,12 +6789,13 @@ repeat
 
                        if graj=true then
                          begin
-                           if km=1 then //map1
-                             begin
+                          // if km=1 then //map1
+                            // begin
                               kk:=1;
-    setfillstyle(1,black);
+
+     setfillstyle(1,black);
      bar(1,1,1279,1023);
-   for i:=3 downto 0 do
+     for i:=3 downto 0 do
      begin
      str(i,c);
      setcolor(random(10-1+1)+1);
@@ -6805,7 +6806,7 @@ repeat
      bar(1,1,1279,1023);
      end;
 
-                                getTime(godz,min,sek,ssek);
+     getTime(godz,min,sek,ssek);
 
 
    vxd1:=-150;
@@ -6821,11 +6822,18 @@ repeat
 
    x:=80;
    y:=900;
-   maap1;
+   if km=1 then maap1
+      else if km=2 then map2
+           else if km=3 then map3
+                else if km=4 then map4
+                     else if km=5 then map5
+                          else if km=6 then map6;
+
+
    repeat
 
 
-   writeln(z);
+   // writeln(z);
    P(kierunek,kolorop);
    duch(vxd1,vyd1,11,white,kd1);
    duch(vxd2,vyd2,7,white,kd2);
@@ -6953,7 +6961,7 @@ repeat
      bestt[1,1,5]:=wena[1,1,5];
     end;
                           end;
-                           if km=2 then   //map2
+                          { if km=2 then   //map2
                              begin
                                                       kk:=1;
     setfillstyle(1,black);
@@ -7777,8 +7785,7 @@ repeat
      bestt[1,6,5]:=wena[1,6,5];
     end;
 
-                             end;
-                         end;
+                             end;}
                    until entermap=false;
 
                      end;
