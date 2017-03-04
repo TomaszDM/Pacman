@@ -8,7 +8,7 @@ var
   x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd, y1, vxd,vyd,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk : integer;
   switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,mb2,sb1,sb2,ssb1,ssb2:word;
   l: int64;  //wyniki czs
-  kierunek, kk , kd1,kd2,kd3 : byte;
+  kierunek, kd1,kd2,kd3 : byte;
   adel:boolean;
   k,kt,km:int64;
   v:longint;
@@ -26,7 +26,8 @@ var
   opcje : array[1..5] of integer;
   sett,sur,adv : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
-
+  const
+  kk=0;
 
 function pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3:integer):integer;
 begin
@@ -288,28 +289,28 @@ begin
 
 
 
-    if (getpixel(x+20, y) = kk) then
+    if (getpixel(x+20, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+20) = kk) then
+    if (getpixel(x, y+20) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-20) = kk) then
+    if (getpixel(x, y-20) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-20, y) = kk) then
+    if (getpixel(x-20, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -321,28 +322,28 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-    if (getpixel(vxd+20+230, vyd+200) = kk) then
+    if (getpixel(vxd+20+230, vyd+200) <> kk) then
     begin
       xd:=-10;
       yd:=0;
       kd:=1;
     end;
 
-    if (getpixel(vxd+230, vyd+20+200) = kk) then
+    if (getpixel(vxd+230, vyd+20+200) <> kk) then
     begin
       xd:=0;
       yd:=-10;
       kd:=2;
     end;
 
-    if (getpixel(vxd+230, vyd-20+200) = kk) then
+    if (getpixel(vxd+230, vyd-20+200) <> kk) then
     begin
       xd:=0;
       yd:=10;
       kd:=4;
     end;
 
-    if (getpixel(vxd-20+230, vyd+200) = kk) then
+    if (getpixel(vxd-20+230, vyd+200) <> kk) then
     begin
       xd:=10;
       yd:=0;
@@ -351,7 +352,7 @@ begin
 
 end;
 
-procedure gonitwa(vxd,vyd,kd : integer);
+{procedure gonitwa(vxd,vyd,kd : integer);
 
 begin
 if (abs(vxd-230-x)<abs(vyd-200-y)) then
@@ -413,7 +414,9 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
                   end;
         end;
 
- end;
+ end;}
+
+
 
 procedure menu;  // ka¾dy kolor ktory jest losowany musi by† inny
   begin
@@ -6788,7 +6791,7 @@ repeat
                          begin
                           // if km=1 then //map1
                             // begin
-                              kk:=1;
+
 
      setfillstyle(1,black);
      bar(1,1,1279,1023);
@@ -6850,17 +6853,17 @@ repeat
    y:=y+10*y1;
 
    //DUCH1
-   gonitwa(vxd1,vyd1,kd1);
+  // gonitwa(vxd1,vyd1,kd1);
    motionduch(vxd1,vyd1,kd1);
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
-   gonitwa(vxd2,vyd2,kd2);
+  // gonitwa(vxd2,vyd2,kd2);
    motionduch(vxd2,vyd2,kd2);
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
    //DUCH3
-   gonitwa(vxd3,vyd3,kd3);
+  // gonitwa(vxd3,vyd3,kd3);
    motionduch(vxd3,vyd3,kd3);
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
