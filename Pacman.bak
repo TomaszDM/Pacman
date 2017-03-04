@@ -354,16 +354,16 @@ end;
 procedure gonitwa(vxd,vyd,kd : integer);
 
 begin
-if (abs(vxd-x)<abs(vyd-y)) then
+if (abs(vxd-230-x)<abs(vyd-200-y)) then
    begin
-    if  x>vxd then
+    if  x>vxd+230 then
            begin
              xd:=10;
              yd:=0;
              kd:=3;
            end
            else
-              if x<vxd  then
+              if x<vxd+230  then
                begin
                 xd:=-10;
                 yd:=0;
@@ -371,7 +371,7 @@ if (abs(vxd-x)<abs(vyd-y)) then
                end;
     end
     else
-         if (vyd<y) then
+         if (vyd+200<y) then
             begin
               xd:=0;
               yd:=10;
@@ -384,28 +384,28 @@ if (abs(vxd-x)<abs(vyd-y)) then
               kd:=4;
              end;
         begin
-        if (vyd<y) then
+        if (vyd+200<y) then
             begin
               xd:=0;
               yd:=10;
               kd:=2;
             end
             else
-             if  (vyd>y) then
+             if  (vyd+200>y) then
               begin
                xd:=0;
                yd:=-10;
                kd:=4;
               end
               else
-               if x>vxd then
+               if x>vxd+230 then
                 begin
                  xd:=10;
                  yd:=0;
                  kd:=3;
                 end
                 else
-                 if x<vxd then
+                 if x<vxd+230 then
                   begin
                    xd:=-10;
                    yd:=0;
@@ -3556,8 +3556,8 @@ repeat
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
                       minimapy;
-                      xk:=20;
-                      yk:=100;
+                      xk:=70;
+                      yk:=170;
                       km:=1;
                       switch:=2;
                       adel:=true;
@@ -3602,7 +3602,7 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>820 then
+                       if xk>870 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
@@ -3612,7 +3612,7 @@ repeat
                           xk:=xk+400;
                           km:=km+1;
                          end;
-                       if yk>400 then
+                       if yk>470 then
                          begin
                           yk:=yk-300;
                           km:=km-3;
@@ -6831,7 +6831,7 @@ repeat
 
 
    // writeln(z);
-   pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
+   //pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
 
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1

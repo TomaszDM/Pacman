@@ -3556,8 +3556,8 @@ repeat
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
                       minimapy;
-                      xk:=20;
-                      yk:=100;
+                      xk:=70;
+                      yk:=170;
                       km:=1;
                       switch:=2;
                       adel:=true;
@@ -3602,7 +3602,7 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>820 then
+                       if xk>870 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
@@ -3612,7 +3612,7 @@ repeat
                           xk:=xk+400;
                           km:=km+1;
                          end;
-                       if yk>400 then
+                       if yk>470 then
                          begin
                           yk:=yk-300;
                           km:=km-3;
@@ -5096,8 +5096,8 @@ repeat
                       setcolor(random(10-1+1)+1);
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
-                      xk:=20;
-                      yk:=100;
+                      xk:=70;
+                      yk:=170;
                       km:=1;
                       switch:=2;
                       adel:=true;
@@ -5142,7 +5142,7 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>820 then
+                       if xk>870 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
@@ -5152,7 +5152,7 @@ repeat
                           xk:=xk+400;
                           km:=km+1;
                          end;
-                       if yk>400 then
+                       if yk>470 then
                          begin
                           yk:=yk-300;
                           km:=km-3;
@@ -6697,8 +6697,8 @@ repeat
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
                       minimapy;
-                      xk:=20;
-                      yk:=100;
+                      xk:=70;
+                      yk:=170;
                       km:=1;
                       switch:=2;
                       adel:=true;
@@ -6744,7 +6744,7 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>820 then
+                       if xk>870 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
@@ -6754,7 +6754,7 @@ repeat
                           xk:=xk+400;
                           km:=km+1;
                          end;
-                       if yk>400 then
+                       if yk>470 then
                          begin
                           yk:=yk-300;
                           km:=km-3;
