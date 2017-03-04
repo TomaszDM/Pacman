@@ -22,7 +22,8 @@ var
   wynik : int64;
   wynikplik1 : file of int64;
   map1: file of int64;
-  cojarobie : array[1..10,1..100] of integer;
+  cojarobie : array[1..2,1..10,1..100] of integer;
+  cojarobie2 : array[1..2,1..10,1..100] of integer
   opcje : array[1..5] of integer;
   sett,sur,adv : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
