@@ -417,6 +417,13 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
  end;}
 
 
+procedure gonitwa (vxd, vyd, kd:integer);
+
+begin
+
+
+end;
+
 
 procedure menu;  // ka¾dy kolor ktory jest losowany musi by† inny
   begin
