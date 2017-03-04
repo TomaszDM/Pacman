@@ -1,5 +1,3 @@
-program Pacman;
-//test gita
 uses crt,wincrt, graph,dos;
 
 var
