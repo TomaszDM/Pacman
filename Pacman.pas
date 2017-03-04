@@ -38,6 +38,7 @@ begin
      str(vxd3,vxd3tekst);
      str(vyd2,vyd2tekst);
      str(vyd3,vyd3tekst);
+     setcolor(white);
      settextstyle(TriplexFont,HorizDir,3);
      outtextxy(50,100,xtekst);
      outtextxy(50,130,vxd1tekst);
