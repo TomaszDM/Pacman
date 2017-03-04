@@ -6891,7 +6891,7 @@ repeat
      setcolor(i);
      settextstyle(TriplexFont,HorizDir,10);
      outtextxy(310,490,'GAME OVER');
-    // delay(300);
+     delay(200);
      if i=10 then i:=1;
      inc(k);
    until k=25;
