@@ -25,6 +25,31 @@ var
   cojarobie : array[1..10,1..100] of integer;
   opcje : array[1..5] of integer;
   sett,sur,adv : text;
+  xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
+
+
+function pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3:integer):integer;
+begin
+     str(x,xtekst);
+     str(vxd1,vxd1tekst);
+     str(vyd1,vyd1tekst);
+     str(y,ytekst);
+     str(vxd2,vxd2tekst);
+     str(vxd3,vxd3tekst);
+     str(vyd2,vyd2tekst);
+     str(vyd3,vyd3tekst);
+     settextstyle(TriplexFont,HorizDir,3);
+     outtextxy(50,100,xtekst);
+     outtextxy(50,130,vxd1tekst);
+     outtextxy(50,160,vyd1tekst);
+     outtextxy(50,190,ytekst);
+     outtextxy(50,220,vxd2tekst);
+     outtextxy(50,250,vxd3tekst);
+     outtextxy(50,280,vyd2tekst);
+     outtextxy(50,310,vyd3tekst);
+end;
+
+
 
 procedure P(kierunek, kolor : byte);
 
@@ -6797,6 +6822,12 @@ repeat
    duch(vxd2,vyd2,7,white,kd2);//2
    duch(vxd3,vyd3,3,white,kd3);//3
 
+   delay(100);
+   P(kierunek,0);//PACMAN
+   duch(vxd1,vyd1,0,0,kd1);//1
+   duch(vxd2,vyd2,0,0,kd2);//2
+   duch(vxd3,vyd3,0,0,kd3);//3
+
    motion;
 
    x:=x+10*x1;
@@ -6818,11 +6849,6 @@ repeat
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
 
-   delay(100);
-   P(kierunek,0);//PACMAN
-   duch(vxd1,vyd1,0,0,kd1);//1
-   duch(vxd2,vyd2,0,0,kd2);//2
-   duch(vxd3,vyd3,0,0,kd3);//3
 
 
    /////////////////////////////////DUCH GONI///////////////////////////////////////
