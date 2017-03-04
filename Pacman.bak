@@ -1,3 +1,5 @@
+program Pacman;
+
 uses crt,wincrt, graph,dos;
 
 var
@@ -3494,8 +3496,7 @@ repeat
           setfillstyle(1,black);
           bar(1,1,getmaxx,getmaxy);
 
-          yk:=190;
-          xk:=240;
+
           setcolor(random(10-1+1)+1);
           settextstyle(TriplexFont,HorizDir,3);
           outtextxy(400,350,'CHOOSE MODE');
@@ -3504,9 +3505,13 @@ repeat
           setcolor(random(10-1+1)+1);
           outtextxy(400,550,' Adventure');
           entertryb:=false;
+
           kt:=1;
           switch:=2;
           adel:=true;
+          xk:=240;
+          yk:=190;
+
           repeat
 
             if del(adel) then inc(switch);
@@ -3554,18 +3559,19 @@ repeat
                       settextstyle(TriplexFont,HorizDir,8);
                       outtextxy(400,100,'WHICH MAP');
                       minimapy;
-                      xk:=40;
+                      xk:=20;
                       yk:=100;
                       km:=1;
                       switch:=2;
                       adel:=true;
                       REPEAT
                      // kursormap(xk,yk);
+                      if del(adel) then inc(switch);
+                      if switch mod 2=0 then kursormenutwarz(yk,xk)
+                         else kursormenuzamkniety(yk,xk);
+                      if switch=100 then switch:=2;
 
-                     if del(adel) then inc(switch);
-                     if switch mod 2=0 then kursormenutwarz(yk,xk)
-                     else kursormenuzamkniety(yk,xk);
-                     if switch=100 then switch:=2;
+
 
                      if keypressed then
                        begin
@@ -3599,19 +3605,19 @@ repeat
                          if przyciskmap=chr(13) then graj:=true;
                          if przyciskmap=chr(13) then entermap:=false;
                        end;
-                       if xk>1200 then
+                       if xk>820 then
                           begin
                            xk:=xk-400;
                            km:=km-1;
                            end;
-                       if xk<200 then
+                       if xk<0 then
                          begin
                           xk:=xk+400;
                           km:=km+1;
                          end;
                        if yk>400 then
                          begin
-                          yk:=yk-100;
+                          yk:=yk-300;
                           km:=km-3;
                          end;
                        if yk<100 then
@@ -3621,12 +3627,10 @@ repeat
                          end;
                         if przyciskmap=chr(27) then
                            begin
-                             kursormenuzmaz(yk,xk);
                              setfillstyle(1,black);
                              bar(1,1,getmaxx,getmaxy);
                              entermap:=false;
-                             xk:=240;
-                             yk:=100;
+                             yk:=200;
                              setcolor(random(10-1+1)+1);
                              settextstyle(TriplexFont,HorizDir,3);
                              outtextxy(400,350,'CHOOSE MODE');
@@ -3636,7 +3640,12 @@ repeat
                              outtextxy(400,550,' Adventure');
                              entertryb:=false;
                              przyciskmap:=chr(1);
+                             xk:=240;
+                             yk:=190;
                           end;
+
+
+
 
                        if graj=true then
                          begin
