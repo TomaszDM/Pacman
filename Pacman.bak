@@ -315,62 +315,63 @@ end;
 procedure gonitwa(vxd,vyd,kd : integer);
 
 begin
-if (abs(vxd-230-x)>abs(vyd-200-y)) then
-        if x>vxd+230 then
+if (abs(vxd-x)<abs(vyd-y)) then
+   begin
+    if  x>vxd then
            begin
              xd:=10;
              yd:=0;
              kd:=3;
            end
-        else
-        if x<vxd+230 then
-           begin
-             xd:=-10;
-             yd:=0;
-             kd:=1;
-           end;
-
-        if (vyd+200<y) then
+           else
+              if x<vxd  then
+               begin
+                xd:=-10;
+                yd:=0;
+                kd:=1;
+               end;
+    end
+    else
+         if (vyd<y) then
             begin
               xd:=0;
               yd:=10;
               kd:=2;
             end
-        else
-           begin
-             xd:=0;
-             yd:=-10;
-             kd:=4;
-           end;
-
-      begin
-        if (vyd+200<y) then
+            else
+             begin
+              xd:=0;
+              yd:=-10;
+              kd:=4;
+             end;
+        begin
+        if (vyd<y) then
             begin
               xd:=0;
               yd:=10;
               kd:=2;
             end
-        else
-        if  (vyd+200>y) then
-           begin
-             xd:=0;
-             yd:=-10;
-             kd:=4;
-           end;
-      { else
-       if x>vxd+230 then
-           begin
-             xd:=10;
-             yd:=0;
-             kd:=3;
-           end
-       else
-        if x<vxd+230 then
-           begin
-             xd:=-10;
-             yd:=0;
-             kd:=1;
-           end;}
+            else
+             if  (vyd>y) then
+              begin
+               xd:=0;
+               yd:=-10;
+               kd:=4;
+              end
+              else
+               if x>vxd then
+                begin
+                 xd:=10;
+                 yd:=0;
+                 kd:=3;
+                end
+                else
+                 if x<vxd then
+                  begin
+                   xd:=-10;
+                   yd:=0;
+                   kd:=1;
+                  end;
         end;
 
  end;
@@ -6797,10 +6798,10 @@ repeat
    duch(vxd3,vyd3,3,white,kd3);
 
    delay(100);
-   P(kierunek,0);
+   {P(kierunek,0);
    duch(vxd1,vyd1,0,0,kd1);
    duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
+   duch(vxd3,vyd3,0,0,kd3);}
 
    motion;
 

@@ -315,23 +315,24 @@ end;
 procedure gonitwa(vxd,vyd,kd : integer);
 
 begin
-if (abs(vxd-230-x)>abs(vyd-200-y)) then
-
-        if x>vxd+230 then
+if (abs(vxd-x)<abs(vyd-y)) then
+   begin
+    if  x>vxd then
            begin
              xd:=10;
              yd:=0;
              kd:=3;
            end
            else
-            if x<vxd+230 then
+              if x<vxd  then
                begin
                 xd:=-10;
                 yd:=0;
                 kd:=1;
                end;
-
-        if (vyd+200<y) then
+    end
+    else
+         if (vyd<y) then
             begin
               xd:=0;
               yd:=10;
@@ -344,28 +345,28 @@ if (abs(vxd-230-x)>abs(vyd-200-y)) then
               kd:=4;
              end;
         begin
-        if (vyd+200<y) then
+        if (vyd<y) then
             begin
               xd:=0;
               yd:=10;
               kd:=2;
             end
             else
-             if  (vyd+200>y) then
+             if  (vyd>y) then
               begin
                xd:=0;
                yd:=-10;
                kd:=4;
               end
               else
-               if x>vxd+230 then
+               if x>vxd then
                 begin
                  xd:=10;
                  yd:=0;
                  kd:=3;
                 end
                 else
-                 if x<vxd+230 then
+                 if x<vxd then
                   begin
                    xd:=-10;
                    yd:=0;
@@ -6796,12 +6797,6 @@ repeat
    duch(vxd2,vyd2,7,white,kd2);
    duch(vxd3,vyd3,3,white,kd3);
 
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
    motion;
 
    x:=x+10*x1;
@@ -6822,6 +6817,12 @@ repeat
    motionduch(vxd3,vyd3,kd3);
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
+
+   delay(100);
+   P(kierunek,0);
+   duch(vxd1,vyd1,0,0,kd1);
+   duch(vxd2,vyd2,0,0,kd2);
+   duch(vxd3,vyd3,0,0,kd3);
 
 
    /////////////////////////////////DUCH GONI///////////////////////////////////////
