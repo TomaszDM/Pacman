@@ -6817,6 +6817,8 @@ repeat
 
 
    // writeln(z);
+   pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
+
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
