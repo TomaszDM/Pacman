@@ -38,6 +38,7 @@ begin
      str(vxd3,vxd3tekst);
      str(vyd2,vyd2tekst);
      str(vyd3,vyd3tekst);
+     setcolor(white);
      settextstyle(TriplexFont,HorizDir,3);
      outtextxy(50,100,xtekst);
      outtextxy(50,130,vxd1tekst);
@@ -47,7 +48,20 @@ begin
      outtextxy(50,250,vxd3tekst);
      outtextxy(50,280,vyd2tekst);
      outtextxy(50,310,vyd3tekst);
+     delay(100);
+     setcolor(black);
+     settextstyle(TriplexFont,HorizDir,3);
+     outtextxy(50,100,xtekst);
+     outtextxy(50,130,vxd1tekst);
+     outtextxy(50,160,vyd1tekst);
+     outtextxy(50,190,ytekst);
+     outtextxy(50,220,vxd2tekst);
+     outtextxy(50,250,vxd3tekst);
+     outtextxy(50,280,vyd2tekst);
+     outtextxy(50,310,vyd3tekst);
+
 end;
+
 
 
 
