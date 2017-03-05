@@ -290,28 +290,28 @@ begin
 
 
 
-    if (getpixel(x+20, y) <> kk) then
+    if (getpixel(x+17, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+20) <> kk) then
+    if (getpixel(x, y+17) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-20) <> kk) then
+    if (getpixel(x, y-17) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-20, y) <> kk) then
+    if (getpixel(x-17, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -323,28 +323,28 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-    if (getpixel(vxd+20+230, vyd+200) <> kk) then
+    if (getpixel(vxd+17+230, vyd+200) <> kk) then
     begin
       xd:=-10;
       yd:=0;
       kd:=1;
     end;
 
-    if (getpixel(vxd+230, vyd+20+200) <> kk) then
+    if (getpixel(vxd+230, vyd+17+200) <> kk) then
     begin
       xd:=0;
       yd:=-10;
       kd:=2;
     end;
 
-    if (getpixel(vxd+230, vyd-20+200) <> kk) then
+    if (getpixel(vxd+230, vyd-17+200) <> kk) then
     begin
       xd:=0;
       yd:=10;
       kd:=4;
     end;
 
-    if (getpixel(vxd-20+230, vyd+200) <> kk) then
+    if (getpixel(vxd-17+230, vyd+200) <> kk) then
     begin
       xd:=10;
       yd:=0;
@@ -424,7 +424,7 @@ vdg=10;
 
 procedure gonitwa (vxd, vyd,kd:integer);
 const
-delta=40;
+delta=17;
 
 var
 xright,xleft,yup,ydown : boolean;
@@ -435,34 +435,27 @@ begin
   randomize;
   vxd:=vxd+230;
   vyd:=vyd+200;
- // vxdp:=vxd;
- // vydp:=vyd;
+  vxdp:=vxd;
+  vydp:=vyd;
 
-  xright:=false;  //do zmiany
+  xright:=true;  //do zmiany
   xleft:=true;
   yup:=true;
   ydown:=true;
 
-  if (getpixel((vxd)+delta,vyd)) <> blue then xright:=true;  // do zmiany
+  if (getpixel((vxd)+delta,vyd)) <> kk then xright:=false;  // do zmiany
   if (getpixel((vxd)-delta,vyd)) <> kk then xleft:=false;
   if (getpixel((vxd),vyd+delta)) <> kk then ydown:=false;
   if (getpixel((vxd),vyd-delta)) <> kk then yup:=false;
 
-  if {(not xright) and (not xleft) and} (yup) and (ydown) then  //do zmiany
+  if (xright) and (not xleft) and (not yup) and (not ydown) then  //do zmiany
      begin
-       yd:=2;
+       xd:=vdg;
        kd:=3;
      end
-     else yd:=-10;
-  if (xright) {and (not xleft) and (yup) and (ydown)} then       //do wywalenia
-     begin
-       xd:=2;
-       yd:=0;
-       kd:=3;
-     end
-     else yd:=-10;
 
-  {if (not xright) and (xleft) and (not yup) and (ydown) then
+
+  if (not xright) and (xleft) and (not yup) and (ydown) then
      begin
        yd:=-vdg;
        kd:=1;
