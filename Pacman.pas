@@ -290,28 +290,28 @@ begin
 
 
 
-    if (getpixel(x+17, y) <> kk) then
+    if (getpixel(x+10, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+17) <> kk) then
+    if (getpixel(x, y+10) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-17) <> kk) then
+    if (getpixel(x, y-10) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-17, y) <> kk) then
+    if (getpixel(x-10, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -7100,7 +7100,7 @@ repeat
 
    inc(zmiana);
    until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
+   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20)) or (ord(z)=27);
 
 
    gettime(godz2,min2,sek2,ssek2);
