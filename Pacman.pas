@@ -452,7 +452,7 @@ begin
      begin
        xd:=vdg;
        kd:=3;
-     end
+     end;
 
 
   if (not xright) and (xleft) and (not yup) and (ydown) then
@@ -618,7 +618,7 @@ begin
              xd:=vdg;
              kd:=3;
          end;
-      end;}
+      end;
 
 end;
 
