@@ -95,7 +95,17 @@ begin
      outtextxy(50,280,vyd2tekst);
      outtextxy(50,310,vyd3tekst);
 end;
-
+procedure testmap;
+  begin
+    setcolor(black);
+    setfillstyle(1,red);
+    bar(1,1,1280,1024);
+    setfillstyle(1,black);
+    bar(300,300,500,340);
+    bar(300,300,340,420);
+    bar(300,380,540,420);
+    bar(460,240,420,420);
+  end;
 
 //***************************************************************************\\
 
@@ -106,20 +116,8 @@ begin
   initgraph(ster, tryb ,'  ');
 
 
-x:=0;
-y:=0;
-vxd1:=0;
-vyd1:=0;
-vxd2:=0;
-vyd2:=0;
-vxd3:=0;
-vyd3:=0;
 
-
-pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
-
-
-
+  testmap;
 readln;
 
 
