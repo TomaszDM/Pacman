@@ -74,48 +74,48 @@ begin
   begin
   setcolor(kolor);             //pacman d
   setfillstyle(1,kolor);
-  pieslice(x,y,35,320,15);
+  pieslice(x,y,35,320,9);
   setcolor(black);
   setfillstyle(1,black);
-  fillellipse(x+3,y-10,2,2);
+  fillellipse(x+3,y-6,2,2);
   end
   else
   if kierunek=2 then
   begin
   setcolor(kolor);             //pacman a
   setfillstyle(1,kolor);
-  fillellipse(x,y,15,15);
+  fillellipse(x,y,9,9);
   setcolor(black);
   setfillstyle(1,black);
-  pieslice(x,y,145,220,15);
+  pieslice(x,y,145,220,9);
   setcolor(black);
   setfillstyle(1,black);
-  fillellipse(x-3,y-10,2,2);
+  fillellipse(x-3,y-6,2,2);
   end
   else
   if kierunek=3 then
   begin
   setcolor(kolor);             //pacman w
   setfillstyle(1,kolor);
-  fillellipse(x,y,15,15);
+  fillellipse(x,y,9,9);
   setcolor(black);
   setfillstyle(1,black);
-  pieslice(x,y,125,50,15);
+  pieslice(x,y,125,50,9);
   setcolor(black);
   setfillstyle(1,black);
-  fillellipse(x-10, y-3,2,2);
+  fillellipse(x-6, y+1,2,2);
   end
   else
   begin
   setcolor(kolor);             //pacman s
   setfillstyle(1,kolor);
-  fillellipse(x,y,15,15);
+  fillellipse(x,y,9,9);
   setcolor(black);
   setfillstyle(1,black);
-  pieslice(x,y,235,310,15);
+  pieslice(x,y,235,310,9);
   setcolor(black);
   setfillstyle(1,black);
-  fillellipse(x+10,y+3,2,2);
+  fillellipse(x+6,y+1,2,2);
   end;
 end;
 
