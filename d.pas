@@ -285,7 +285,8 @@ procedure map3;
 function siatka(x,y,pkt:longint):integer;
 var
 xsiatka,ysiatka,i,j:integer;
-znajdzki: array[1..1682,1..2] of integer;
+znajdzki: array[1..1682] of integer;
+znajdzki2: array[1..1682] of integer;
 pozw1,pozw2:boolean;
 punkty: array[1..1682] of boolean;
 begin
@@ -294,12 +295,24 @@ if getpixel(30,30)=black then for xsiatka:=1 to 41 do
  begin
   for ysiatka:=1 to 41 do
     begin
-        znajdzki[i,1]:=30*xsiatka;
-        znajdzki[i,2]:=30*ysiatka;
+        znajdzki[i]:=30*xsiatka;
+        znajdzki2[i]:=30*ysiatka;
         punkty[i]:=false;
         inc(i);
     end;
   end;
+
+
+
+for j:=1 to i do
+  begin
+    if (znajdzki[j]=x)  and (znajdzki2[j]=y)   then
+      begin
+        punkty[j]:=true;
+        pkt:=pkt+10;
+      end;
+  end;
+
 
 j:=1;
 for xsiatka:=1 to 41 do
@@ -326,9 +339,6 @@ for xsiatka:=1 to 41 do
      inc(j);
     end;
  end;
-
-
-//nie mam pomyslu jak zliczac punkty
 
 end;
 //***************************************************************************\\
