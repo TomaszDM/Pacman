@@ -572,8 +572,8 @@ begin
            kd:=2;
          end;
     end;
-  // deltagx:=vxd-vxdp;
-  // deltagy:=vyd-vydp;
+    deltagx:=vxd-vxdp;
+    deltagy:=vyd-vydp;
     deltagx:=0;
     deltagy:=20;
    if (not xright) and (not xleft) and (yup) and (ydown) and (deltagy<>0) then
