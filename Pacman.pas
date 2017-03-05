@@ -323,7 +323,7 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-    if (getpixel(vxd+17+230, vyd+200) <> kk) then
+   { if (getpixel(vxd+17+230, vyd+200) <> kk) then
     begin
       xd:=-10;
       yd:=0;
@@ -350,7 +350,7 @@ begin
       yd:=0;
       kd:=3;
     end;
-
+       }
 end;
 
 {procedure gonitwa(vxd,vyd,kd : integer);
@@ -419,7 +419,7 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
 
 
 const
-vdg=10;
+vdg=20;
 
 
 procedure gonitwa (vxd, vyd,kd:integer);
@@ -432,7 +432,7 @@ deltagx,deltagy, R : shortint;
 vxdp,vydp:integer;
 
 begin
-  randomize;
+ // randomize;
   vxd:=vxd+230;
   vyd:=vyd+200;
   vxdp:=vxd;
@@ -455,9 +455,9 @@ begin
      end;
 
 
-  if (not xright) and (xleft) and (not yup) and (ydown) then
+  if (not xright) and (xleft) and (not yup) and (not ydown) then
      begin
-       yd:=-vdg;
+       xd:=-vdg;
        kd:=1;
      end;
   if (not xright) and (not xleft) and (yup) and (not ydown) then
@@ -7047,7 +7047,7 @@ repeat
                      else if km=5 then map5
                           else if km=6 then map6;
 
-
+   randomize;
    repeat
 
 
