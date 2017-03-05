@@ -438,8 +438,8 @@ vdg=20;
 
 procedure gonitwa (vxd, vyd,kd:integer);
 const
-delta=17;
-
+deltax=16;
+deltay=17;
 var
 xright,xleft,yup,ydown : boolean;
 deltagx,deltagy, R : shortint;
@@ -457,10 +457,10 @@ begin
   yup:=true;
   ydown:=true;
 
-  if (getpixel((vxd)+delta,vyd)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-delta,vyd)) <> kk then xleft:=false;
-  if (getpixel((vxd),vyd+delta)) <> kk then ydown:=false;
-  if (getpixel((vxd),vyd-delta)) <> kk then yup:=false;
+  if (getpixel((vxd)+deltax,vyd)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd)) <> kk then xleft:=false;
+  if (getpixel((vxd),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd),vyd-deltay)) <> kk then yup:=false;
 
   if (xright) and (not xleft) and (not yup) and (not ydown) then  //do zmiany
      begin
@@ -7041,19 +7041,19 @@ repeat
   // x:=80;
   // y:=900;
 
-   vxd1:=400;
-   vyd1:=300;
+   vxd1:=600;
+   vyd1:=100;
    kd1:=1;
-   vxd2:=600;
-   vyd2:=300;
+   vxd2:=640;
+   vyd2:=160;
    kd2:=1;
    vxd3:=200;
    vyd3:=200;
    kd1:=1;
    zmiana:=0;
 
-   x:=50;
-   y:=900;
+   x:=200;
+   y:=240;
   { if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
