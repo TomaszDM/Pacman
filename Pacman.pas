@@ -30,6 +30,20 @@ var
   const
   kk=0;
 
+procedure testmap;
+  begin
+    setcolor(black);
+    setfillstyle(1,red);
+    bar(1,1,1280,1024);
+    setfillstyle(1,black);
+    bar(300,300,500,340);
+    bar(300,300,340,420);
+    bar(300,380,540,420);
+    bar(460,240,420,420);
+  end;
+
+
+
 function pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3:integer):integer;
 begin
      str(x,xtekst);
@@ -7040,13 +7054,14 @@ repeat
 
    x:=50;
    y:=900;
-   if km=1 then maap1
+  { if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
                 else if km=4 then map4
                      else if km=5 then map5
-                          else if km=6 then map6;
+                          else if km=6 then map6;}
 
+   testmap;
    randomize;
    repeat
 
