@@ -4,29 +4,53 @@ uses crt,wincrt, graph,dos;
 
 var
   ster, tryb : integer;
+
   go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc: string;
-  x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd, y1, vxd,vyd,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk : integer;
-  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,mb2,sb1,sb2,ssb1,ssb2:word;
+
+  x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
+  y1,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk : integer;
+
+  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,
+
+  mb2,sb1,sb2,ssb1,ssb2:word;
+
   l: int64;  //wyniki czs
+
   kd, kierunek, kd1,kd2,kd3 : byte;
+
   adel:boolean;
+
   k,kt,km:int64;
+
   v:longint;
+
   przycisk,n,z,przycisktryb,przyciskmap,przyciskekran:char;
+
   koniec, essc,enteer,entertryb,entermap,graj,enterko,esc,entero, kpress : boolean;
+
   kolor : array[0..7] of integer;
+
   tp : array[1..10,1..100] of integer;
+
   bestt : array[1..2,1..10,1..100] of string;
+
   ts : array[1..10,1..100] of integer;
+
   wena : array[1..2,0..10,0..100] of string;
+
   wynik : int64;
+
   wynikplik1 : file of int64;
+
   map1: file of int64;
+
   cojarobie : array[1..2,1..10,1..100] of integer;
   cojarobie2 : array[1..2,1..10,1..100] of integer;
   opcje : array[1..5] of integer;
+
   sett,sur,adv : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
+
   const
   kk=0;
 
@@ -433,13 +457,14 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
 
 
 const
-vdg=20;
+vdg=5;
 
 
 procedure gonitwa (vxd, vyd,kd:integer);
 const
-deltax=16;
-deltay=17;
+deltax=30;
+deltay=30;
+
 var
 xright,xleft,yup,ydown : boolean;
 deltagx,deltagy, R : shortint;
@@ -7041,10 +7066,10 @@ repeat
   // x:=80;
   // y:=900;
 
-   vxd1:=600;
-   vyd1:=100;
+   vxd1:=210;
+   vyd1:=60;
    kd1:=1;
-   vxd2:=640;
+   vxd2:=340;
    vyd2:=160;
    kd2:=1;
    vxd3:=200;
@@ -7052,8 +7077,8 @@ repeat
    kd1:=1;
    zmiana:=0;
 
-   x:=200;
-   y:=240;
+   x:=520;
+   y:=400;
   { if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
@@ -7065,7 +7090,6 @@ repeat
    randomize;
    repeat
 
-
    // writeln(z);
    //pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
 
@@ -7075,6 +7099,8 @@ repeat
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
   // duch(vxd3,vyd3,3,white,kd3);//3
+
+ //  delay(200);
 
    delay(100);
    P(kierunek,0);//PACMAN
@@ -7089,13 +7115,13 @@ repeat
 
    //DUCH1
    gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
+  // motionduch(vxd1,vyd1,kd1);
   // kd1:=kd;
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
    gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
+  // motionduch(vxd2,vyd2,kd2);
   // kd2:=kd;
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
