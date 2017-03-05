@@ -23,7 +23,7 @@ var
   wynikplik1 : file of int64;
   map1: file of int64;
   cojarobie : array[1..2,1..10,1..100] of integer;
-  cojarobie2 : array[1..2,1..10,1..100] of integer
+  cojarobie2 : array[1..2,1..10,1..100] of integer;
   opcje : array[1..5] of integer;
   sett,sur,adv : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
@@ -7021,18 +7021,31 @@ repeat
      getTime(godz,min,sek,ssek);
 
 
-   vxd1:=-150;
-   vyd1:=500;
+  // vxd1:=-150;
+  // vyd1:=500;
+  // kd1:=1;
+  // vxd2:=990;
+  // vyd2:=750;
+  // kd2:=1;
+  // vxd3:=200;
+  // vyd3:=200;
+  // kd1:=1;
+  // zmiana:=0;
+  // x:=80;
+  // y:=900;
+
+   vxd1:=400;
+   vyd1:=300;
    kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
+   vxd2:=600;
+   vyd2:=300;
    kd2:=1;
    vxd3:=200;
    vyd3:=200;
    kd1:=1;
    zmiana:=0;
 
-   x:=80;
+   x:=50;
    y:=900;
    if km=1 then maap1
       else if km=2 then map2
