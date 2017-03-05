@@ -281,10 +281,36 @@ procedure map3;
     setfillstyle(1,black);
     bar(565,564,715,596);
    end;
+procedure siateczka;
+var
+pozw1,pozw2:boolean;
+begin
+for i:=1 to 41 do
+ begin
+  for j:=1 to 41 do
+    begin
+     setfillstyle(1,white);
+     pozw1:=false;
+     pozw2:=false;
 
+     if (getpixel(30*i,30*j)=black) and (getpixel(30*i-2,30*j)=black) and (getpixel(30*i+2,30*j)=black) then pozw1:=true;
+     if (getpixel(30*i,30*j-2)=black) and (getpixel(30*i,30*j+2)=black) then pozw2:=true;
+     if pozw1 and pozw2 then
+       begin
+        setcolor(white);
+        fillellipse(30*i,30*j,3,3);
+       end;
+     setcolor(black);
+     setfillstyle(1,black);
+     bar(490,450,790,564);
+     bar(565,564,700,596);
+     setcolor(white);
+   end;
+   end;
+end;
 function siatka(x,y,pkt:longint):integer;
 var
-xsiatka,ysiatka,i,j:integer;
+xsiatka,ysiatka,i,j,k:integer;
 znajdzki: array[1..1682] of integer;
 znajdzki2: array[1..1682] of integer;
 pozw1,pozw2:boolean;
@@ -302,16 +328,13 @@ if getpixel(30,30)=black then for xsiatka:=1 to 41 do
     end;
   end;
 
-
-
-for j:=1 to i do
-  begin
-    if (znajdzki[j]=x)  and (znajdzki2[j]=y)   then
+j:=(x div 30);
+k:=(y div 30);
+if (znajdzki[j]=x) and (znajdzki2[k]=y)  then
       begin
-        punkty[j]:=true;
+        punkty[j*k]:=true;
         pkt:=pkt+10;
       end;
-  end;
 
 
 j:=1;
@@ -326,11 +349,7 @@ for xsiatka:=1 to 41 do
      if (getpixel(30*xsiatka,30*ysiatka)=black) and (getpixel(30*xsiatka-2,30*ysiatka)=black) and (getpixel(30*xsiatka+2,30*ysiatka)=black) then pozw1:=true;
      if (getpixel(30*xsiatka,30*ysiatka-2)=black) and (getpixel(30*xsiatka,30*ysiatka+2)=black) then pozw2:=true;
      if pozw1 and pozw2 then
-       begin
-         if punkty[j]=false then setcolor(white)
-          else setcolor(black);
-        fillellipse(30*xsiatka,30*ysiatka,3,3);
-       end;
+         if punkty[j]=false then fillellipse(30*xsiatka,30*ysiatka,3,3);
      setcolor(black);
      setfillstyle(1,black);
      bar(490,450,790,564);
@@ -349,7 +368,8 @@ begin
 
   initgraph(ster, tryb ,'  ');
   map3;
-  siatka(1,1,0);
+  siateczka;
+  siatka(30,30,0);
 
 //  map3;
 readln;
