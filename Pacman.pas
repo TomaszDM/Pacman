@@ -4275,7 +4275,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,2,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -4286,7 +4286,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,2,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -4525,7 +4525,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,3,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -4536,7 +4536,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,3,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -4798,7 +4798,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,4,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -4809,7 +4809,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,4,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -5053,7 +5053,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,5,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -5064,7 +5064,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,5,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -5353,7 +5353,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[1,6,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -5364,7 +5364,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[1,6,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -5812,7 +5812,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,2,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -5823,7 +5823,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,2,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -6062,7 +6062,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,3,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -6073,7 +6073,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,3,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -6335,7 +6335,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,4,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -6346,7 +6346,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,4,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -6590,7 +6590,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,5,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -6601,7 +6601,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,5,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                                end;
@@ -6889,7 +6889,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,6,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,300,':');
                                outtextxy(880,300,'.');
                                end;
@@ -6900,7 +6900,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
+                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,6,j]);
                                for j:=1 to 4 do outtextxy(240+100*j,500,':');
                                outtextxy(880,500,'.');
                               end;
@@ -6988,6 +6988,7 @@ repeat
              end;
                if entermap=true then
                  begin
+                   graj:=false;
                    setfillstyle(1,black);
                    bar(1,1,getmaxx,getmaxy);
                    if kt=1 then  //przeskok do minimap
@@ -7081,6 +7082,7 @@ repeat
                              przyciskmap:=chr(1);
                              xk:=240;
                              yk:=190;
+                             graj:=false;
                           end;
 
                        if graj=true then
@@ -7105,20 +7107,20 @@ repeat
      getTime(godz,min,sek,ssek);
 
 
-  // vxd1:=-150;
-  // vyd1:=500;
-  // kd1:=1;
-  // vxd2:=990;
-  // vyd2:=750;
-  // kd2:=1;
-  // vxd3:=200;
-  // vyd3:=200;
-  // kd1:=1;
-  // zmiana:=0;
-  // x:=80;
-  // y:=900;
+   vxd1:=-150;
+   vyd1:=500;
+   kd1:=1;
+   vxd2:=990;
+   vyd2:=750;
+   kd2:=1;
+   vxd3:=200;
+   vyd3:=200;
+   kd1:=1;
+   zmiana:=0;
+   x:=80;
+   y:=900;
 
-   vxd1:=210;
+ {  vxd1:=210;
    vyd1:=60;
    kd1:=1;
    vxd2:=340;
@@ -7127,18 +7129,18 @@ repeat
    vxd3:=200;
    vyd3:=200;
    kd1:=1;
-   zmiana:=0;
+   zmiana:=0; }
 
    x:=520;
    y:=400;
-  { if km=1 then maap1
+   if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
                 else if km=4 then map4
                      else if km=5 then map5
-                          else if km=6 then map6;}
+                          else if km=6 then map6;
 
-   testmap;
+//   testmap;
    randomize;
    repeat
 
@@ -7230,7 +7232,7 @@ repeat
   str(s:2,se);
   str(ss,sse);
 
-  repeat
+//  repeat
   setcolor(white);
   settextstyle(TriplexFont,HorizDir,3);
   outtextxy(110,410,'Duch zlapal Cie po: ');
@@ -7242,45 +7244,47 @@ repeat
   outtextxy(860,410,':');
   outtextxy(900,410,sse);
   outtextxy(940,410,'. Gratulacje!');
+repeat
   readkey;
   until readkey=chr(27);
+//if keypressed then readkey:=keypressed;
   entermap:=false;
-  wena[1,1,1]:=go;
-  wena[1,1,2]:=mi;
-  wena[1,1,3]:=se;
-  wena[1,1,4]:=sse;
-  wena[1,1,5]:=uzytkownik;
-  if wena[1,1,1]>bestt[1,1,1] then
+  wena[1,km,1]:=go;
+  wena[1,km,2]:=mi;
+  wena[1,km,3]:=se;
+  wena[1,km,4]:=sse;
+  wena[1,km,5]:=uzytkownik;
+  if wena[1,km,1]>bestt[1,km,1] then
     begin
-     bestt[1,1,1]:=wena[1,1,1];
-     bestt[1,1,2]:=wena[1,1,2];
-     bestt[1,1,3]:=wena[1,1,3];
-     bestt[1,1,4]:=wena[1,1,4];
-     bestt[1,1,5]:=wena[1,1,5];
+     bestt[1,km,1]:=wena[1,km,1];
+     bestt[1,km,2]:=wena[1,km,2];
+     bestt[1,km,3]:=wena[1,km,3];
+     bestt[1,km,4]:=wena[1,km,4];
+     bestt[1,km,5]:=wena[1,km,5];
     end;
-   if (wena[1,1,1]=bestt[1,1,1]) and (wena[1,1,2]>bestt[1,1,2]) then
+   if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]>bestt[1,km,2]) then
     begin
-     bestt[1,1,1]:=wena[1,1,1];
-     bestt[1,1,2]:=wena[1,1,2];
-     bestt[1,1,3]:=wena[1,1,3];
-     bestt[1,1,4]:=wena[1,1,4];
-     bestt[1,1,5]:=wena[1,1,5];
+     bestt[1,km,1]:=wena[1,km,1];
+     bestt[1,km,2]:=wena[1,km,2];
+     bestt[1,km,3]:=wena[1,km,3];
+     bestt[1,km,4]:=wena[1,km,4];
+     bestt[1,km,5]:=wena[1,km,5];
     end;
-    if (wena[1,1,1]=bestt[1,1,1]) and (wena[1,1,2]=bestt[1,1,2]) and (wena[1,1,3]>bestt[1,1,3]) then
+    if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]=bestt[1,km,2]) and (wena[1,km,3]>bestt[1,km,3]) then
     begin
-     bestt[1,1,1]:=wena[1,1,1];
-     bestt[1,1,2]:=wena[1,1,2];
-     bestt[1,1,3]:=wena[1,1,3];
-     bestt[1,1,4]:=wena[1,1,4];
-     bestt[1,1,5]:=wena[1,1,5];
+     bestt[1,km,1]:=wena[1,km,1];
+     bestt[1,km,2]:=wena[1,km,2];
+     bestt[1,km,3]:=wena[1,km,3];
+     bestt[1,km,4]:=wena[1,km,4];
+     bestt[1,km,5]:=wena[1,km,5];
     end;
-     if (wena[1,1,1]=bestt[1,1,1]) and (wena[1,1,2]=bestt[1,1,2]) and (wena[1,1,3]=bestt[1,1,3]) and (wena[1,1,4]>bestt[1,1,4]) then
+     if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]=bestt[1,km,2]) and (wena[1,km,3]=bestt[1,km,3]) and (wena[1,km,4]>bestt[1,km,4]) then
     begin
-     bestt[1,1,1]:=wena[1,1,1];
-     bestt[1,1,2]:=wena[1,1,2];
-     bestt[1,1,3]:=wena[1,1,3];
-     bestt[1,1,4]:=wena[1,1,4];
-     bestt[1,1,5]:=wena[1,1,5];
+     bestt[1,km,1]:=wena[1,km,1];
+     bestt[1,km,2]:=wena[1,km,2];
+     bestt[1,km,3]:=wena[1,km,3];
+     bestt[1,km,4]:=wena[1,km,4];
+     bestt[1,km,5]:=wena[1,km,5];
     end;
                           end;
                           { if km=2 then   //map2
