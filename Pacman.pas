@@ -50,7 +50,7 @@ var
   cojarobie2 : array[1..2,1..10,1..100] of integer;
   opcje : array[1..5] of integer;
 
-  sett,sur,adv : text;
+  sett,sur,adv,hero : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
 
   const
@@ -3110,8 +3110,13 @@ begin
 
 
     //notatniki
-
-
+  assign(hero,'C:\Wyniki\hero.txt');
+  reset(hero);
+  for j:=1 to 2 do
+    begin
+     for i:=1 to 6 do readln(hero,uzytkownikb[j,i]);
+    end;
+  close(hero);
     assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
       i:=1;
@@ -3122,7 +3127,6 @@ begin
           inc(i);
           if i=4 then
           begin
-          readln(sur,uzytkownikb[1,j]);
           inc(j);
           i:=1;
           end;
@@ -3134,7 +3138,7 @@ begin
       for i:=1 to 4 do
        begin
          str(cojarobie[1,j,i],bestt[1,j,i]);
-         if i=4 then bestt[1,j,i]:=uzytkownikb[1,j];
+         if i=4 then bestt[1,j,i+1]:=uzytkownikb[1,j];
        end;
      end;
 
@@ -8374,10 +8378,23 @@ repeat
 
   for i:=1 to 6 do
   begin
-  for j:=1 to 4 do
-  begin
-    writeln(sur,cojarobie[1,i,j]);
-  end;
+  for j:=1 to 4 do writeln(sur,cojarobie[1,i,j]);
   end;
   close(sur);
+
+
+  for i:=1 to 2 do
+    begin
+      for j:=1 to 6 do uzytkownikb[1,j]:=bestt[i,j,5];
+
+    end;
+  assign(hero,'C:\Wyniki\hero.txt');
+  rewrite(hero);
+  for j:=1 to 2 do
+    begin
+     for i:=1 to 6 do writeln(hero,uzytkownikb[j,i]);
+    end;
+  close(hero);
+
+
 end.
