@@ -5,10 +5,10 @@ uses crt,wincrt, graph,dos;
 var
   ster, tryb : integer;
 
-  go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc: string;
+  go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
 
   x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
-  y1,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
+  y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
   switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,
 
@@ -3117,6 +3117,7 @@ begin
      for i:=1 to 6 do readln(hero,uzytkownikb[j,i]);
     end;
   close(hero);
+
     assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
       i:=1;
@@ -8392,7 +8393,15 @@ repeat
   rewrite(hero);
   for j:=1 to 2 do
     begin
-     for i:=1 to 6 do writeln(hero,uzytkownikb[j,i]);
+     for i:=1 to 6 do
+      begin
+       uzytkownikbe:=uzytkownikb[j,i];
+       for linijka:=1 to length(uzytkownikbe) do
+         begin
+          write(hero,uzytkownikbe[linijka]);
+          writeln(hero);
+         end;
+      end;
     end;
   close(hero);
 
