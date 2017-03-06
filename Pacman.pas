@@ -380,28 +380,28 @@ begin
 
 
 
-    if (getpixel(x+10, y) <> kk) then
+    if (getpixel(x+17, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+10) <> kk) then
+    if (getpixel(x, y+17) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-10) <> kk) then
+    if (getpixel(x, y-17) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-10, y) <> kk) then
+    if (getpixel(x-17, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -514,8 +514,9 @@ vdg=5;
 
 procedure gonitwa (vxd, vyd,kd:integer);
 const
-deltax=30;
-deltay=30;
+
+deltax=16;
+deltay=17;
 
 var
 xright,xleft,yup,ydown : boolean;
@@ -525,7 +526,7 @@ vxdp,vydp:integer;
 begin
  // randomize;
   vxd:=vxd+230;
-  vyd:=vyd+200;
+  vyd:=vyd+202;
   vxdp:=vxd;
   vydp:=vyd;
 
