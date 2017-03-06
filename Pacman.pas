@@ -524,14 +524,15 @@ deltagx,deltagy, R : shortint;
 
 begin
  // randomize;
-  inc(licznik);
-  if licznik=4 then
+//  inc(licznik);
+//  if licznik=4 then licznik:=0;
+//  if licznik=0 then
 
   begin
   vxd:=vxd+230;
   vyd:=vyd+202;
-  vxdp:=vxd;
-  vydp:=vyd;
+//  vxdp:=vxd;
+//  vydp:=vyd;
 
   xright:=true;  //do zmiany
   xleft:=true;
@@ -714,13 +715,12 @@ begin
              kd:=3;
          end;
       end;
-   licznik:=0;
-   end
-   else
-   begin
-     xd:=deltagx;
-     yd:=deltagy;
    end;
+ //  else
+ //  begin
+    // xd:=deltagx;
+    // yd:=deltagy;
+  // end;
 
 end;
 
