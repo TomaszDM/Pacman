@@ -24,6 +24,8 @@ var
 
   v:longint;
 
+  uzytkownikb: array[1..2,1..6] of string;
+
   przycisk,n,z,przycisktryb,przyciskmap,przyciskekran:char;
 
   koniec, essc,enteer,entertryb,entermap,graj,enterko,esc,entero, kpress : boolean;
@@ -185,7 +187,7 @@ begin
   else
   if kierunek=3 then
   begin
-  setcolor(kolor);             //pacman w
+  setcolor(black);             //pacman w
   setfillstyle(1,kolor);
   fillellipse(x,y,15,15);
   setcolor(black);
@@ -3108,28 +3110,42 @@ begin
 
 
     //notatniki
+
+
     assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
       i:=1;
       j:=1;
        while not eof(sur) do
          begin
-          readln(sur,bestt[1,j,i]);
+          readln(sur,cojarobie[1,j,i]);
           inc(i);
-          if i=5 then
+          if i=4 then
           begin
+          readln(sur,uzytkownikb[1,j]);
           inc(j);
           i:=1;
           end;
          end;
     close(sur);
+
+   for j:=1 to 6 do
+     begin
+      for i:=1 to 4 do
+       begin
+         str(cojarobie[1,j,i],bestt[1,j,i]);
+         if i=4 then bestt[1,j,i]:=uzytkownikb[1,j];
+       end;
+     end;
+
+
      assign(adv, 'C:\Wyniki\wynikadv.txt');
     reset(adv);
       i:=1;
       j:=1;
        while not eof(adv) do
          begin
-          readln(adv,bestt[2,j,i]);
+          readln(adv,cojarobie[2,j,i]);
           inc(i);
           if i=6 then
           begin
@@ -3139,7 +3155,10 @@ begin
          end;
     close(adv);
 
-
+for j:=1 to 6 do
+     begin
+      for i:=1 to 4 do str(cojarobie[2,j,i],bestt[2,j,i]);
+     end;
 
     assign(sett, 'C:\wyniki\ustawienia.txt');
     reset(sett);
@@ -7281,7 +7300,7 @@ repeat
      delay(200);
      if i=10 then i:=1;
      inc(k);
-   until k=25;
+   until k=15;
 
    setfillstyle(1,black);
    bar(1,1,getmaxx,getmaxy);
@@ -7289,11 +7308,16 @@ repeat
   g:=godz2-godz;
   m:=min2-min;
   s:=sek2-sek;
-  ss:=ssek2-ssek;
+//  ss:=ssek2-ssek;
+  ss:=random(81);
+  cojarobie2[1,km,1]:=g;
+  cojarobie2[1,km,2]:=m;
+  cojarobie2[1,km,3]:=s;
+  cojarobie2[1,km,4]:=ss;
 
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
+  str(g,go);
+  str(m,mi);
+  str(s,se);
   str(ss,sse);
 
 //  repeat
@@ -7309,7 +7333,7 @@ repeat
   outtextxy(900,410,sse);
   outtextxy(940,410,'. Gratulacje!');
 repeat
-  readkey;
+  keypressed;
   until readkey=chr(27);
 //if keypressed then readkey:=keypressed;
   entermap:=false;
@@ -7318,37 +7342,57 @@ repeat
   wena[1,km,3]:=se;
   wena[1,km,4]:=sse;
   wena[1,km,5]:=uzytkownik;
-  if wena[1,km,1]>bestt[1,km,1] then
+  if cojarobie2[1,km,1]>cojarobie[1,km,1] then
     begin
      bestt[1,km,1]:=wena[1,km,1];
      bestt[1,km,2]:=wena[1,km,2];
      bestt[1,km,3]:=wena[1,km,3];
      bestt[1,km,4]:=wena[1,km,4];
      bestt[1,km,5]:=wena[1,km,5];
+     cojarobie[1,km,1]:=cojarobie2[1,km,1];
+     cojarobie[1,km,2]:=cojarobie2[1,km,2];
+     cojarobie[1,km,3]:=cojarobie2[1,km,3];
+     cojarobie[1,km,4]:=cojarobie2[1,km,4];
+     cojarobie[1,km,5]:=cojarobie2[1,km,5];
     end;
-   if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]>bestt[1,km,2]) then
+   if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]>cojarobie[1,km,2]) then
     begin
      bestt[1,km,1]:=wena[1,km,1];
      bestt[1,km,2]:=wena[1,km,2];
      bestt[1,km,3]:=wena[1,km,3];
      bestt[1,km,4]:=wena[1,km,4];
      bestt[1,km,5]:=wena[1,km,5];
+     cojarobie[1,km,1]:=cojarobie2[1,km,1];
+     cojarobie[1,km,2]:=cojarobie2[1,km,2];
+     cojarobie[1,km,3]:=cojarobie2[1,km,3];
+     cojarobie[1,km,4]:=cojarobie2[1,km,4];
+     cojarobie[1,km,5]:=cojarobie2[1,km,5];
     end;
-    if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]=bestt[1,km,2]) and (wena[1,km,3]>bestt[1,km,3]) then
+    if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]=cojarobie[1,km,2]) and (cojarobie2[1,km,3]>cojarobie[1,km,3]) then
     begin
      bestt[1,km,1]:=wena[1,km,1];
      bestt[1,km,2]:=wena[1,km,2];
      bestt[1,km,3]:=wena[1,km,3];
      bestt[1,km,4]:=wena[1,km,4];
      bestt[1,km,5]:=wena[1,km,5];
+     cojarobie[1,km,1]:=cojarobie2[1,km,1];
+     cojarobie[1,km,2]:=cojarobie2[1,km,2];
+     cojarobie[1,km,3]:=cojarobie2[1,km,3];
+     cojarobie[1,km,4]:=cojarobie2[1,km,4];
+     cojarobie[1,km,5]:=cojarobie2[1,km,5];
     end;
-     if (wena[1,km,1]=bestt[1,km,1]) and (wena[1,km,2]=bestt[1,km,2]) and (wena[1,km,3]=bestt[1,km,3]) and (wena[1,km,4]>bestt[1,km,4]) then
+     if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]=cojarobie[1,km,2]) and (cojarobie2[1,km,3]=cojarobie[1,km,3]) and (cojarobie2[1,km,4]>cojarobie[1,km,4]) then
     begin
      bestt[1,km,1]:=wena[1,km,1];
      bestt[1,km,2]:=wena[1,km,2];
      bestt[1,km,3]:=wena[1,km,3];
      bestt[1,km,4]:=wena[1,km,4];
      bestt[1,km,5]:=wena[1,km,5];
+     cojarobie[1,km,1]:=cojarobie2[1,km,1];
+     cojarobie[1,km,2]:=cojarobie2[1,km,2];
+     cojarobie[1,km,3]:=cojarobie2[1,km,3];
+     cojarobie[1,km,4]:=cojarobie2[1,km,4];
+     cojarobie[1,km,5]:=cojarobie2[1,km,5];
     end;
                           end;
                           { if km=2 then   //map2
@@ -8330,7 +8374,10 @@ repeat
 
   for i:=1 to 6 do
   begin
-  for j:=1 to 5 do writeln(sett,bestt[1,i,j]);
+  for j:=1 to 4 do
+  begin
+    writeln(sur,cojarobie[1,i,j]);
+  end;
   end;
   close(sur);
 end.
