@@ -8,11 +8,11 @@ var
   go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc: string;
 
   x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
-  y1,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk : integer;
+  y1,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
   switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,
 
-  mb2,sb1,sb2,ssb1,ssb2:word;
+  licznik, mb2,sb1,sb2,ssb1,ssb2:word;
 
   l: int64;  //wyniki czs
 
@@ -380,28 +380,28 @@ begin
 
 
 
-    if (getpixel(x+10, y) <> kk) then
+    if (getpixel(x+17, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+10) <> kk) then
+    if (getpixel(x, y+17) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-10) <> kk) then
+    if (getpixel(x, y-17) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-10, y) <> kk) then
+    if (getpixel(x-17, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -512,20 +512,27 @@ const
 vdg=5;
 
 
-procedure gonitwa (vxd, vyd,kd:integer);
+procedure gonitwa (vxd,vyd,kd,vxdp,vydp:integer);
 const
-deltax=30;
-deltay=30;
+
+deltax=16;
+deltay=17;
 
 var
 xright,xleft,yup,ydown : boolean;
 deltagx,deltagy, R : shortint;
-vxdp,vydp:integer;
+x1t,x2t,y1t,y2t:string;
+
 
 begin
  // randomize;
+//  inc(licznik);
+//  if licznik=4 then licznik:=0;
+//  if licznik=0 then
+
+  begin
   vxd:=vxd+230;
-  vyd:=vyd+200;
+  vyd:=vyd+202;
   vxdp:=vxd;
   vydp:=vyd;
 
@@ -538,6 +545,57 @@ begin
   if (getpixel((vxd)-deltax,vyd)) <> kk then xleft:=false;
   if (getpixel((vxd),vyd+deltay)) <> kk then ydown:=false;
   if (getpixel((vxd),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd+5)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd+5)) <> kk then xleft:=false;
+  if (getpixel((vxd+5),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd+5),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd+10)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd+10)) <> kk then xleft:=false;
+  if (getpixel((vxd+10),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd+10),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd+15)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd+15)) <> kk then xleft:=false;
+  if (getpixel((vxd+15),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd+15),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd-5)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd-5)) <> kk then xleft:=false;
+  if (getpixel((vxd-5),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd-5),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd-10)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd-10)) <> kk then xleft:=false;
+  if (getpixel((vxd-10),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd-10),vyd-deltay)) <> kk then yup:=false;
+
+  if (getpixel((vxd)+deltax,vyd-15)) <> kk then xright:=false;  // do zmiany
+  if (getpixel((vxd)-deltax,vyd-15)) <> kk then xleft:=false;
+  if (getpixel((vxd-15),vyd+deltay)) <> kk then ydown:=false;
+  if (getpixel((vxd-15),vyd-deltay)) <> kk then yup:=false;
+
+
+  setcolor(red);
+ // bar(900,200,1400,900);
+
+  setcolor(black);
+
+  str(xright,x1t);
+  str(xleft,x1t);
+  str(yup,x1t);
+  str(ydown,x1t);
+
+  setcolor(white);
+  settextstyle(TriplexFont,HorizDir,3);
+
+  outtextxy(900,200,x1t);
+  outtextxy(900,400,x2t);
+  outtextxy(900,600,y1t);
+  outtextxy(900,800,y2t);
+
+
 
   if (xright) and (not xleft) and (not yup) and (not ydown) then  //do zmiany
      begin
@@ -710,6 +768,12 @@ begin
              kd:=3;
          end;
       end;
+   end;
+ //  else
+ //  begin
+    // xd:=deltagx;
+    // yd:=deltagy;
+  // end;
 
 end;
 
@@ -7105,7 +7169,7 @@ repeat
      end;
 
      getTime(godz,min,sek,ssek);
-
+     licznik:=0;
 
    vxd1:=-150;
    vyd1:=500;
@@ -7168,13 +7232,13 @@ repeat
    y:=y+10*y1;
 
    //DUCH1
-   gonitwa(vxd1,vyd1,kd1);
+   gonitwa(vxd1,vyd1,kd1,vxdp1,vydp1);
   // motionduch(vxd1,vyd1,kd1);
   // kd1:=kd;
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
-   gonitwa(vxd2,vyd2,kd2);
+   gonitwa(vxd2,vyd2,kd2,vxdp2,vydp2);
   // motionduch(vxd2,vyd2,kd2);
   // kd2:=kd;
    vxd2:=vxd2+xd;
