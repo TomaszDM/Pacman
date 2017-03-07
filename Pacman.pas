@@ -3087,12 +3087,12 @@ begin
     end;
   close(hero);
 
-for j:=1 to 2 do
+{for j:=1 to 2 do
   for i:=1 to 6 do
    begin
     writeln(i,',',j);
     writeln(uzytkownikb[j,i]);
-   end;
+   end;}
 
     assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
@@ -3109,13 +3109,17 @@ for j:=1 to 2 do
           end;
          end;
     close(sur);
-
+   writeln('Przypisanie besta');
    for j:=1 to 6 do
      begin
       for i:=1 to 4 do
        begin
          str(cojarobie[1,j,i],bestt[1,j,i]);
-         if i=4 then bestt[1,j,i+1]:=uzytkownikb[1,j];
+         if i=4 then
+         begin
+           bestt[1,j,i+1]:=uzytkownikb[1,j];
+           writeln(bestt[1,j,5]);
+         end;
        end;
      end;
 
