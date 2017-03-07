@@ -5,7 +5,7 @@ uses crt,wincrt, graph,dos;
 var
   ster, tryb : integer;
 
-  wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
+  pkts,wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
 
   x, y, i,j,i2, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
@@ -2916,9 +2916,11 @@ repeat
   n:=readkey;
   if ord(n)=48 then for j:=1 to 4 do
    begin
+    writeln('km=',km);
     bestt[kt,km,j]:='0';
     cojarobie[kt,km,j]:=0;
-    uzytkownikb[kt,km]:='';
+    //uzytkownikb[kt,km]:='';
+    //bestt[kt,km,5]:='';
    end;
 
   if ord(n)<>27 then esc:=false
@@ -2991,7 +2993,7 @@ begin
          end;
        end;
      end;
-
+   writeln('Koniec');
 
      assign(adv, 'C:\Wyniki\wynikadv.txt');
     reset(adv);
@@ -7058,6 +7060,7 @@ repeat
 
    x:=520;
    y:=400;
+
    if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
@@ -7066,6 +7069,10 @@ repeat
                           else if km=6 then map6;
 
 //   testmap;
+
+
+   if kt=2 then siateczka;
+
    randomize;
    repeat
 
@@ -7086,6 +7093,8 @@ repeat
    duch(vxd1,vyd1,0,0,kd1);//1
    duch(vxd2,vyd2,0,0,kd2);//2
    duch(vxd3,vyd3,0,0,kd1);//3
+
+   if kt=2 then siatka(x,y,pkt);
 
    motion;
 
@@ -7170,10 +7179,10 @@ repeat
   m:=0;
   s:=0;
   ss:=random(81); }
-  cojarobie2[1,km,1]:=g;
-  cojarobie2[1,km,2]:=m;
-  cojarobie2[1,km,3]:=s;
-  cojarobie2[1,km,4]:=ss;
+  cojarobie2[kt,km,1]:=g;
+  cojarobie2[kt,km,2]:=m;
+  cojarobie2[kt,km,3]:=s;
+  cojarobie2[kt,km,4]:=ss;
 
   str(g,go);
   str(m,mi);
@@ -7199,62 +7208,63 @@ repeat
 until readkey=chr(27);
 //if keypressed then readkey:=keypressed;
   entermap:=false;
-  wena[1,km,1]:=go;
-  wena[1,km,2]:=mi;
-  wena[1,km,3]:=se;
-  wena[1,km,4]:=sse;
-  wena[1,km,5]:=uzytkownik;
-  if cojarobie2[1,km,1]>cojarobie[1,km,1] then
+  str(pkt,pkts);
+  wena[kt,km,1]:='0';
+  wena[kt,km,2]:='0';
+  wena[kt,km,3]:='0';
+  wena[kt,km,4]:=pkts;
+  wena[kt,km,5]:=uzytkownik;
+  if cojarobie2[kt,km,1]>cojarobie[kt,km,1] then
     begin
-     bestt[1,km,1]:=wena[1,km,1];
-     bestt[1,km,2]:=wena[1,km,2];
-     bestt[1,km,3]:=wena[1,km,3];
-     bestt[1,km,4]:=wena[1,km,4];
-     bestt[1,km,5]:=wena[1,km,5];
-     cojarobie[1,km,1]:=cojarobie2[1,km,1];
-     cojarobie[1,km,2]:=cojarobie2[1,km,2];
-     cojarobie[1,km,3]:=cojarobie2[1,km,3];
-     cojarobie[1,km,4]:=cojarobie2[1,km,4];
-     cojarobie[1,km,5]:=cojarobie2[1,km,5];
+     bestt[kt,km,1]:=wena[kt,km,1];
+     bestt[kt,km,2]:=wena[kt,km,2];
+     bestt[kt,km,3]:=wena[kt,km,3];
+     bestt[kt,km,4]:=wena[kt,km,4];
+     bestt[kt,km,5]:=wena[kt,km,5];
+     cojarobie[kt,km,1]:=cojarobie2[kt,km,1];
+     cojarobie[kt,km,2]:=cojarobie2[kt,km,2];
+     cojarobie[kt,km,3]:=cojarobie2[kt,km,3];
+     cojarobie[kt,km,4]:=cojarobie2[kt,km,4];
+     cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
-   if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]>cojarobie[1,km,2]) then
+   if (cojarobie2[kt,km,1]=cojarobie[kt,km,1]) and (cojarobie2[kt,km,2]>cojarobie[kt,km,2]) then
     begin
-     bestt[1,km,1]:=wena[1,km,1];
-     bestt[1,km,2]:=wena[1,km,2];
-     bestt[1,km,3]:=wena[1,km,3];
-     bestt[1,km,4]:=wena[1,km,4];
-     bestt[1,km,5]:=wena[1,km,5];
-     cojarobie[1,km,1]:=cojarobie2[1,km,1];
-     cojarobie[1,km,2]:=cojarobie2[1,km,2];
-     cojarobie[1,km,3]:=cojarobie2[1,km,3];
-     cojarobie[1,km,4]:=cojarobie2[1,km,4];
-     cojarobie[1,km,5]:=cojarobie2[1,km,5];
+     bestt[kt,km,1]:=wena[kt,km,1];
+     bestt[kt,km,2]:=wena[kt,km,2];
+     bestt[kt,km,3]:=wena[kt,km,3];
+     bestt[kt,km,4]:=wena[kt,km,4];
+     bestt[kt,km,5]:=wena[kt,km,5];
+     cojarobie[kt,km,1]:=cojarobie2[kt,km,1];
+     cojarobie[kt,km,2]:=cojarobie2[kt,km,2];
+     cojarobie[kt,km,3]:=cojarobie2[kt,km,3];
+     cojarobie[kt,km,4]:=cojarobie2[kt,km,4];
+     cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
-    if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]=cojarobie[1,km,2]) and (cojarobie2[1,km,3]>cojarobie[1,km,3]) then
+    if (cojarobie2[kt,km,1]=cojarobie[kt,km,1]) and (cojarobie2[kt,km,2]=cojarobie[kt,km,2]) and (cojarobie2[kt,km,3]>cojarobie[kt,km,3]) then
     begin
-     bestt[1,km,1]:=wena[1,km,1];
-     bestt[1,km,2]:=wena[1,km,2];
-     bestt[1,km,3]:=wena[1,km,3];
-     bestt[1,km,4]:=wena[1,km,4];
-     bestt[1,km,5]:=wena[1,km,5];
-     cojarobie[1,km,1]:=cojarobie2[1,km,1];
-     cojarobie[1,km,2]:=cojarobie2[1,km,2];
-     cojarobie[1,km,3]:=cojarobie2[1,km,3];
-     cojarobie[1,km,4]:=cojarobie2[1,km,4];
-     cojarobie[1,km,5]:=cojarobie2[1,km,5];
+     bestt[kt,km,1]:=wena[kt,km,1];
+     bestt[kt,km,2]:=wena[kt,km,2];
+     bestt[kt,km,3]:=wena[kt,km,3];
+     bestt[kt,km,4]:=wena[kt,km,4];
+     bestt[kt,km,5]:=wena[kt,km,5];
+     cojarobie[kt,km,1]:=cojarobie2[kt,km,1];
+     cojarobie[kt,km,2]:=cojarobie2[kt,km,2];
+     cojarobie[kt,km,3]:=cojarobie2[kt,km,3];
+     cojarobie[kt,km,4]:=cojarobie2[kt,km,4];
+     cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
-     if (cojarobie2[1,km,1]=cojarobie[1,km,1]) and (cojarobie2[1,km,2]=cojarobie[1,km,2]) and (cojarobie2[1,km,3]=cojarobie[1,km,3]) and (cojarobie2[1,km,4]>cojarobie[1,km,4]) then
+     if (cojarobie2[kt,km,1]=cojarobie[kt,km,1]) and (cojarobie2[kt,km,2]=cojarobie[kt,km,2]) and (cojarobie2[kt,km,3]=cojarobie[kt,km,3]) and (cojarobie2[kt,km,4]>cojarobie[kt,km,4]) then
     begin
-     bestt[1,km,1]:=wena[1,km,1];
-     bestt[1,km,2]:=wena[1,km,2];
-     bestt[1,km,3]:=wena[1,km,3];
-     bestt[1,km,4]:=wena[1,km,4];
-     bestt[1,km,5]:=wena[1,km,5];
-     cojarobie[1,km,1]:=cojarobie2[1,km,1];
-     cojarobie[1,km,2]:=cojarobie2[1,km,2];
-     cojarobie[1,km,3]:=cojarobie2[1,km,3];
-     cojarobie[1,km,4]:=cojarobie2[1,km,4];
-     cojarobie[1,km,5]:=cojarobie2[1,km,5];
+     bestt[kt,km,1]:=wena[kt,km,1];
+     bestt[kt,km,2]:=wena[kt,km,2];
+     bestt[kt,km,3]:=wena[kt,km,3];
+     bestt[kt,km,4]:=wena[kt,km,4];
+     bestt[kt,km,5]:=wena[kt,km,5];
+     cojarobie[kt,km,1]:=cojarobie2[kt,km,1];
+     cojarobie[kt,km,2]:=cojarobie2[kt,km,2];
+     cojarobie[kt,km,3]:=cojarobie2[kt,km,3];
+     cojarobie[kt,km,4]:=cojarobie2[kt,km,4];
+     cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
                           end;
                           { if km=2 then   //map2
