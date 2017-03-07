@@ -382,28 +382,28 @@ begin
 
 
 
-    if (getpixel(x+17, y) <> kk) then
+    if (getpixel(x+20, y) <> kk) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+17) <> kk) then
+    if (getpixel(x, y+20) <> kk) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-17) <> kk) then
+    if (getpixel(x, y-20) <> kk) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-17, y) <> kk) then
+    if (getpixel(x-20, y) <> kk) then
     begin
       x1:=1;
       y1:=0;
@@ -415,28 +415,28 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-    if (getpixel(vxd+17+230, vyd+200) <> kk) then
+    if (getpixel(vxd+20+230, vyd+202) <> kk) then
     begin
       xd:=-10;
       yd:=0;
       kd:=1;
     end;
 
-    if (getpixel(vxd+230, vyd+17+200) <> kk) then
+    if (getpixel(vxd+230, vyd+20+202) <> kk) then
     begin
       xd:=0;
       yd:=-10;
       kd:=2;
     end;
 
-    if (getpixel(vxd+230, vyd-17+200) <> kk) then
+    if (getpixel(vxd+230, vyd-20+202) <> kk) then
     begin
       xd:=0;
       yd:=10;
       kd:=4;
     end;
 
-    if (getpixel(vxd-17+230, vyd+200) <> kk) then
+    if (getpixel(vxd-20+230, vyd+202) <> kk) then
     begin
       xd:=10;
       yd:=0;
@@ -445,10 +445,11 @@ begin
 
 end;
 
-{procedure gonitwa(vxd,vyd,kd : integer);
+procedure gonitwa(vxd,vyd,kd : integer);
 
 begin
-if (abs(vxd-230-x)<abs(vyd-200-y)) then
+if (((abs(vxd+230-x)<abs(vyd-y)+202)))
+    and  (abs(vxd+230-x)>2) then
    begin
     if  x>vxd+230 then
            begin
@@ -465,7 +466,9 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
                end;
     end
     else
-         if (vyd+200<y) then
+        begin
+
+        if (vyd+202<y) then
             begin
               xd:=0;
               yd:=10;
@@ -477,15 +480,15 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
               yd:=-10;
               kd:=4;
              end;
-        begin
-        if (vyd+200<y) then
+
+        if (vyd+202<y) then
             begin
               xd:=0;
               yd:=10;
               kd:=2;
             end
             else
-             if  (vyd+200>y) then
+             if  (vyd+202>y) then
               begin
                xd:=0;
                yd:=-10;
@@ -507,285 +510,13 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
                   end;
         end;
 
- end;}
+ end;
 
 
 const
 vdg=10;
 
 
-procedure gonitwa (vxd,vyd,kd,vxdp,vydp:integer);
-const
-
-deltax=16;
-deltay=17;
-
-var
-xright,xleft,yup,ydown : boolean;
-deltagx,deltagy, R : shortint;
-x1t,x2t,y1t,y2t:string;
-
-
-begin
- // randomize;
-//  inc(licznik);
-//  if licznik=4 then licznik:=0;
-//  if licznik=0 then
-
-  begin
-  vxd:=vxd+230;
-  vyd:=vyd+202;
-  vxdp:=vxd;
-  vydp:=vyd;
-
-  xright:=true;  //do zmiany
-  xleft:=true;
-  yup:=true;
-  ydown:=true;
-
-  if (getpixel((vxd)+deltax,vyd)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd)) <> kk then xleft:=false;
-  if (getpixel((vxd),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd+5)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd+5)) <> kk then xleft:=false;
-  if (getpixel((vxd+5),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd+5),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd+10)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd+10)) <> kk then xleft:=false;
-  if (getpixel((vxd+10),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd+10),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd+15)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd+15)) <> kk then xleft:=false;
-  if (getpixel((vxd+15),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd+15),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd-5)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd-5)) <> kk then xleft:=false;
-  if (getpixel((vxd-5),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd-5),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd-10)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd-10)) <> kk then xleft:=false;
-  if (getpixel((vxd-10),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd-10),vyd-deltay)) <> kk then yup:=false;
-
-  if (getpixel((vxd)+deltax,vyd-15)) <> kk then xright:=false;  // do zmiany
-  if (getpixel((vxd)-deltax,vyd-15)) <> kk then xleft:=false;
-  if (getpixel((vxd-15),vyd+deltay)) <> kk then ydown:=false;
-  if (getpixel((vxd-15),vyd-deltay)) <> kk then yup:=false;
-
-
-  setcolor(black);
-  setfillstyle(1,black);
-  bar(1300,200,1600,900);
-
-
-
-  str(xright,x1t);
-  str(xleft,x2t);
-  str(yup,y1t);
-  str(ydown,y2t);
-
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-
-  outtextxy(1300,200,x1t);
-  outtextxy(1300,400,x2t);
-  outtextxy(1300,600,y1t);
-  outtextxy(1300,800,y2t);
-
-
-
-  if (xright) and (not xleft) and (not yup) and (not ydown) then  //do zmiany
-     begin
-       xd:=vdg;
-       kd:=3;
-     end;
-
-
-  if (not xright) and (xleft) and (not yup) and (not ydown) then
-     begin
-       xd:=-vdg;
-       kd:=1;
-     end;
-  if (not xright) and (not xleft) and (yup) and (not ydown) then
-     begin
-       xd:=-vdg;
-       kd:=4;
-     end;
-  if (not xright) and (not xleft) and (not yup) and (ydown) then
-     begin
-       yd:=vdg;
-       kd:=2;
-     end;
-
-  if (not xright) and (xleft) and (yup) and (ydown) then
-    begin
-      R:=random(3);
-      if R=0 then
-        begin
-          xd:=-vdg;
-          kd:=1;
-        end;
-      if R=1 then
-         begin
-           yd:=-vdg;
-           kd:=4;
-         end;
-
-      if R=2 then
-         begin
-           yd:=vdg;
-           kd:=2;
-         end;
-    end;
-
-   if (xright) and (not xleft) and (yup) and (ydown) then
-    begin
-      R:=random(3);
-      if R=0 then
-         begin
-           xd:=vdg;
-           kd:=3;
-         end;
-      if R=1 then
-         begin
-           yd:=-vdg;
-           kd:=4;
-         end;
-
-      if R=2 then
-         begin
-           yd:=vdg;
-           kd:=2;
-         end;
-    end;
-
-   if (xright) and (xleft) and (yup) and (not ydown) then
-    begin
-      R:=random(3);
-      if R=0 then
-         begin
-           xd:=vdg;
-           kd:=3;
-         end;
-      if R=1 then
-         begin
-           yd:=-vdg;
-           kd:=4;
-         end;
-      if R=2 then
-         begin
-           xd:=vdg;
-           kd:=3;
-         end;
-    end;
-   if (xright) and (xleft) and (not yup) and (ydown) then
-    begin
-      R:=random(3);
-      if R=0 then
-        begin
-          xd:=-vdg;
-          kd:=1;
-        end;
-      if R=1 then
-         begin
-           xd:=vdg;
-           kd:=3;
-         end;
-
-      if R=2 then
-         begin
-           yd:=vdg;
-           kd:=2;
-         end;
-    end;
-   if (xright) and (xleft) and (yup) and (ydown) then
-    begin
-      R:=random(4);
-      if R=0 then
-        begin
-          xd:=-vdg;
-          kd:=1;
-        end;
-      if R=1 then
-         begin
-           yd:=-vdg;
-           kd:=4;
-         end;
-
-      if R=2 then
-         begin
-           yd:=vdg;
-           kd:=2;
-         end;
-    end;
-    deltagx:=vxd-vxdp;
-    deltagy:=vyd-vydp;
-    deltagx:=0;
-    deltagy:=20;
-
-   if (not xright) and (not xleft) and (not yup) and (not ydown) then
-   begin
-   xd:=0;
-   yd:=0;
-   end;
-
-   if (not xright) and (not xleft) and (yup) and (ydown) and (deltagy<>0) then
-     begin
-       yd:=deltagy;
-       if deltagy>0 then kd:=2;
-       if deltagy<0 then kd:=4;
-     end;
-
-   if (xright) and (xleft) and (not yup) and (not ydown) and (deltagx<>0) then
-     begin
-       xd:=deltagx;
-       if deltagx>0 then kd:=3;
-       if deltagx<0 then kd:=1;
-     end;
-
-   if (deltagy=0) or (deltagy=0) then
-     begin
-       if (not xright) and (not xleft) and (yup) and (ydown) then
-         begin
-           R:=random(2);
-           if R=0 then
-             begin
-               yd:=-vdg;
-               kd:=4;
-             end;
-           if R=1 then
-             begin
-               yd:=+vdg;
-               kd:=2;
-             end;
-         end;
-       if (xright) and (not xleft) and (yup) and (ydown) then
-         begin
-           R:=random(2);
-           if R=0 then
-             begin
-               xd:=-vdg;
-               kd:=1;
-             end;
-           if R=1 then
-             xd:=vdg;
-             kd:=3;
-         end;
-      end;
-   end;
- //  else
- //  begin
-    // xd:=deltagx;
-    // yd:=deltagy;
-  // end;
-
-end;
 
 
 procedure menu;  // ka¾dy kolor ktory jest losowany musi by† inny
@@ -7215,8 +6946,8 @@ repeat
    vxd2:=990;
    vyd2:=750;
    kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
+   vxd3:=990;
+   vyd3:=400;
    kd1:=1;
    zmiana:=0;
    x:=80;
@@ -7254,7 +6985,7 @@ repeat
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
-   //duch(vxd3,vyd3,3,white,kd3);//3
+   duch(vxd3,vyd3,3,white,kd3);//3
 
  //  delay(200);
 
@@ -7262,7 +6993,7 @@ repeat
    P(kierunek,0);//PACMAN
    duch(vxd1,vyd1,0,0,kd1);//1
    duch(vxd2,vyd2,0,0,kd2);//2
-  // duch(vxd3,vyd3,0,0,kd3);//3
+   duch(vxd3,vyd3,0,0,kd3);//3
 
    motion;
 
@@ -7270,23 +7001,23 @@ repeat
    y:=y+10*y1;
 
    //DUCH1
-   gonitwa(vxd1,vyd1,kd1,vxdp1,vydp1);
+   gonitwa(vxd1,vyd1,kd1);
    motionduch(vxd1,vyd1,kd1);
   // kd1:=kd;
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
-   gonitwa(vxd2,vyd2,kd2,vxdp2,vydp2);
+   gonitwa(vxd2,vyd2,kd2);
    motionduch(vxd2,vyd2,kd2);
   // kd2:=kd;
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
   // DUCH3
-  { gonitwa(vxd3,vyd3,kd3);
+   gonitwa(vxd3,vyd3,kd3);
    motionduch(vxd3,vyd3,kd3);
-   kd3:=kd;
+  // kd3:=kd;
    vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd};
+   vyd3:=vyd3+yd;
 
 
 
