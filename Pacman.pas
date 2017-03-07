@@ -7192,14 +7192,14 @@ repeat
    kd1:=1;
    zmiana:=0;}
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
    x:=520;
    y:=400;
 
-=======
+//=======
    x:=650;
    y:=550;
->>>>>>> 0b61bb30de67c681aa275a0fa1f9ba93d4833ab9
+//>>>>>>> 0b61bb30de67c681aa275a0fa1f9ba93d4833ab9
    if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
