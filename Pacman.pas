@@ -3050,8 +3050,6 @@ repeat
     writeln('km=',km);
     bestt[kt,km,j]:='0';
     cojarobie[kt,km,j]:=0;
-    //uzytkownikb[kt,km]:='';
-    //bestt[kt,km,5]:='';
    end;
 
   if ord(n)<>27 then esc:=false
@@ -3075,28 +3073,12 @@ begin
     begin
      for i:=1 to 6 do
       begin
-      // repeat
-      //  v:=1;
-      //  tomek:=false;
         readln(hero,uzytkownikb[j,i]);
-        writeln(uzytkownikb[j,i]);
-
-         // else tomek:=true;
-       // inc(v);
-      // until ((tomek=true) and (v>1)) or (uzytkownikbe='');
-      // uzytkownikb[j,i]:=uzytkownikbe;
       end;
     end;
   close(hero);
 
-{for j:=1 to 2 do
-  for i:=1 to 6 do
-   begin
-    writeln(i,',',j);
-    writeln(uzytkownikb[j,i]);
-   end;}
-
-    assign(sur, 'C:\Wyniki\wyniksur.txt');
+assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
       i:=1;
       j:=1;
@@ -3111,7 +3093,6 @@ begin
           end;
          end;
     close(sur);
-   writeln('Przypisanie besta');
    for j:=1 to 6 do
      begin
       for i:=1 to 4 do
@@ -3120,13 +3101,11 @@ begin
          if i=4 then
          begin
            bestt[1,j,i+1]:=uzytkownikb[1,j];
-           writeln(bestt[1,j,5]);
          end;
        end;
      end;
-   writeln('Koniec');
 
-     assign(adv, 'C:\Wyniki\wynikadv.txt');
+   assign(adv, 'C:\Wyniki\wynikadv.txt');
     reset(adv);
       i:=1;
       j:=1;
@@ -3214,17 +3193,15 @@ for j:=1 to 6 do
                  setcolor(black);
                  bar(100+i,600,150+i,800);
                  dec(j);
-               //  dec(x);
                  end;
-               else begin
-                // uzytkownik:=uzytkownik+readkey;
+               else
+               begin
                  if ord(uzytkownik[0])<j then
                     uzytkownik[0]:=chr(ord(uzytkownik[0])+1);
                  uzytkownik[j]:=przyciskekran;
                  outtextxy(100+i,600,przyciskekran);
                  i:=i+50;
                  inc(j);
-                // inc(x);
                  if x=3 then x:=x-2;
                  kolor[0]:=kolor[x];
                end;
@@ -3251,7 +3228,6 @@ repeat
   adel:=true;
     enteer:=false;
     repeat
-   // kursormenutwarz(yk,xk);
     if del(adel) then inc(switch);
     if switch mod 2=0 then kursormenutwarz(yk,xk)
     else kursormenuzamkniety(yk,xk);
@@ -3557,7 +3533,6 @@ repeat
                         dec(x);
                         end;
                         else begin
-                        // uzytkownik:=uzytkownik+readkey;
                         if ord(uzytkownik[0])<j then
                         uzytkownik[0]:=chr(ord(uzytkownik[0])+1);
                         uzytkownik[j]:=przyciskekran;
@@ -3931,7 +3906,6 @@ repeat
                       switch:=2;
                       adel:=true;
                       REPEAT
-                     // kursormap(xk,yk);
                       if del(adel) then inc(switch);
                       if switch mod 2=0 then kursormenutwarz(yk,xk)
                          else kursormenuzamkniety(yk,xk);
@@ -7007,7 +6981,6 @@ repeat
           adel:=true;
           repeat
 
-           // kursortryb(yk);
            if del(adel) then inc(switch);
            if switch mod 2=0 then kursormenutwarz(yk,xk)
                else kursormenuzamkniety(yk,xk);
@@ -7063,7 +7036,6 @@ repeat
 
 
                       REPEAT
-                     // kursormap(xk,yk);
                      if del(adel) then inc(switch);
                      if switch mod 2=0 then kursormenutwarz(yk,xk)
                         else kursormenuzamkniety(yk,xk);
@@ -7142,110 +7114,8 @@ repeat
                              yk:=190;
                              graj:=false;
                           end;
-               if entermap=true then
-                 begin
-                   graj:=false;
-                   setfillstyle(1,black);
-                   bar(1,1,getmaxx,getmaxy);
-                   if kt=2 then  //przeskok do minimap
-                     begin
-                      setcolor(random(10-1+1)+1);
-                      settextstyle(TriplexFont,HorizDir,8);
-                      outtextxy(400,100,'WHICH MAP');
-                      minimapy;
-                      xk:=70;
-                      yk:=170;
-                      km:=1;
-                      switch:=2;
-                      adel:=true;
-
-
-                      REPEAT
-                     // kursormap(xk,yk);
-                     if del(adel) then inc(switch);
-                     if switch mod 2=0 then kursormenutwarz(yk,xk)
-                        else kursormenuzamkniety(yk,xk);
-                     if switch=100 then switch:=2;
-
-
-                     if keypressed then
-                       begin
-                         przyciskmap:=readkey;
-                         przyciskmap:=upcase(przyciskmap);
-                         if przyciskmap=chr(68) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            xk:=xk+400;
-                            km:=km+1;
-                           end;
-                         if przyciskmap=chr(83) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            yk:=yk+300;
-                            km:=km+3;
-                           end;
-
-                         if przyciskmap=chr(65) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            xk:=xk-400;
-                            km:=km-1;
-                           end;
-                         if przyciskmap=chr(87) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            yk:=yk-300;
-                            km:=km-3;
-                           end;
-                         if przyciskmap=chr(13) then graj:=true;
-                         if przyciskmap=chr(13) then entermap:=false;
-                       end;
-                       if xk>870 then
-                          begin
-                           xk:=xk-400;
-                           km:=km-1;
-                           end;
-                       if xk<0 then
-                         begin
-                          xk:=xk+400;
-                          km:=km+1;
-                         end;
-                       if yk>470 then
-                         begin
-                          yk:=yk-300;
-                          km:=km-3;
-                         end;
-                       if yk<100 then
-                         begin
-                          yk:=yk+300;
-                          km:=km+3;
-                         end;
-                        if przyciskmap=chr(27) then
-                           begin
-                             kursormenuzmaz(yk,xk);
-                             setfillstyle(1,black);
-                             bar(1,1,getmaxx,getmaxy);
-                             entermap:=false;
-                             yk:=100;
-                             setcolor(random(10-1+1)+1);
-                             settextstyle(TriplexFont,HorizDir,3);
-                             outtextxy(400,350,'CHOOSE MODE');
-                             setcolor(random(10-1+1)+1);
-                             outtextxy(400,450,' Survival');
-                             setcolor(random(10-1+1)+1);
-                             outtextxy(400,550,' Adventure');
-                             entertryb:=false;
-                             przyciskmap:=chr(1);
-                             xk:=240;
-                             yk:=190;
-                             graj:=false;
-                          end;
-
-                       until graj=true; //then
-                        // begin
-                          // if km=1 then //map1
-                            // begin
-
+     if graj=true then
+     begin
 
      setfillstyle(1,black);
      bar(1,1,1279,1023);
@@ -7277,27 +7147,9 @@ repeat
    y:=900;
    vxd4:=-60;
    vyd4:=868;
-
-
-   {vxd1:=210;
-   vyd1:=60;
-   kd1:=1;
-   vxd2:=340;
-   vyd2:=160;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;}
-
-//<<<<<<< HEAD
-   x:=520;
-   y:=400;
-
-//=======
    x:=650;
    y:=550;
-//>>>>>>> 0b61bb30de67c681aa275a0fa1f9ba93d4833ab9
+
    if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3
@@ -7305,7 +7157,6 @@ repeat
                      else if km=5 then map5
                           else if km=6 then map6;
 
-//   testmap;
 
 
    if kt=2 then siateczka;
@@ -7313,19 +7164,14 @@ repeat
    randomize;
    repeat
 
-   // writeln(z);
-   //pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3);
-
-
 
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
    duch(vxd3,vyd3,5,white,kd1);//3
 
- //  delay(200);
-
    delay(100);
+
    P(kierunek,0);//PACMAN
    duch(vxd1,vyd1,0,0,kd1);//1
    duch(vxd2,vyd2,0,0,kd2);//2
@@ -7341,28 +7187,20 @@ repeat
    //DUCH1
    gonitwa(vxd1,vyd1,kd1);
    motionduch(vxd1,vyd1,kd1);
-  // kd1:=kd;
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
    gonitwa(vxd2,vyd2,kd2);
    motionduch(vxd2,vyd2,kd2);
-  // kd2:=kd;
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
   // DUCH3
    gonitwa(vxd3,vyd3,kd1);
    motionduch(vxd3,vyd3,kd1);
-  // kd3:=kd;
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
 
-
-
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
+  /////////////////////////////////DUCH GONI///////////////////////////////////////
 
    inc(zmiana);
    until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
@@ -7373,10 +7211,6 @@ repeat
 
    setfillstyle(1,black);
    bar(1,1,getmaxx,getmaxy);
-
-
-
-
 
    i:=0;
    k:=0;
@@ -7412,10 +7246,7 @@ repeat
       g:=g-1;
       m:=m+60;
     end;
-{  g:=0;
-  m:=0;
-  s:=0;
-  ss:=random(81); }
+
   cojarobie2[kt,km,1]:=g;
   cojarobie2[kt,km,2]:=m;
   cojarobie2[kt,km,3]:=s;
@@ -7426,7 +7257,6 @@ repeat
   str(s,se);
   str(ss,sse);
 
-//  repeat
   setcolor(white);
   settextstyle(TriplexFont,HorizDir,3);
   outtextxy(110,410,'Duch zlapal Cie po: ');
@@ -7439,11 +7269,11 @@ repeat
   outtextxy(900,410,sse);
   outtextxy(940,410,'. Gratulacje!');
   i:=1;
+
 repeat
 
-
 until readkey=chr(27);
-//if keypressed then readkey:=keypressed;
+
   entermap:=false;
   str(pkt,pkts);
   if kt=2 then
@@ -7515,964 +7345,8 @@ until readkey=chr(27);
      cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
     end;
-                          { if km=2 then   //map2
-                             begin
-                                                      kk:=1;
-    setfillstyle(1,black);
-     bar(1,1,1279,1023);
-   for i:=3 downto 0 do
-     begin
-     str(i,c);
-     setcolor(random(10-1+1)+1);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(640,512,c);
-     delay(1000);
-     setfillstyle(1,black);
-     bar(1,1,1279,1023);
-     end;
-
-                                getTime(godz,min,sek,ssek);
-
-
-   vxd1:=-150;
-   vyd1:=500;
-   kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;
-
-   x:=80;
-   y:=900;
-   map2;
-   repeat
-
-
-   writeln(z);
-   P(kierunek,kolorop);
-   duch(vxd1,vyd1,11,white,kd1);
-   duch(vxd2,vyd2,7,white,kd2);
-   duch(vxd3,vyd3,3,white,kd3);
-
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
-   motion;
-
-   x:=x+10*x1;
-   y:=y+10*y1;
-
-   gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
-   vxd1:=vxd1+xd;
-   vyd1:=vyd1+yd;
-
-   gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
-   vxd2:=vxd2+xd;
-   vyd2:=vyd2+yd;
-
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
-   vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd;
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
-
-   inc(zmiana);
-   until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
-
-
-   gettime(godz2,min2,sek2,ssek2);
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-
-
-
-
-   i:=0;
-   k:=0;
-   repeat
-     inc(i);
-     setcolor(i);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(310,490,'GAME OVER');
-     delay(300);
-     if i=10 then i:=1;
-     inc(k);
-   until k=25;
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-  g:=godz2-godz;
-  m:=min2-min;
-  s:=sek2-sek;
-  ss:=ssek2-ssek;
-
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
-  str(ss,sse);
-
-  repeat
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-  outtextxy(110,410,'Duch zlapal Cie po: ');
-  outtextxy(580,410,go);
-  outtextxy(640,410,':');
-  outtextxy(680,410,mi);
-  outtextxy(740,410,':');
-  outtextxy(780,410,se);
-  outtextxy(860,410,':');
-  outtextxy(900,410,sse);
-  outtextxy(940,410,'. Gratulacje!');
-  readkey;
-  until readkey=chr(27);
-  entermap:=false;
-  wena[1,2,1]:=go;
-  wena[1,2,2]:=mi;
-  wena[1,2,3]:=se;
-  wena[1,2,4]:=sse;
-  wena[1,2,5]:=uzytkownik;
-  if wena[1,2,1]>bestt[1,2,1] then
-    begin
-     bestt[1,2,1]:=wena[1,2,1];
-     bestt[1,2,2]:=wena[1,2,2];
-     bestt[1,2,3]:=wena[1,2,3];
-     bestt[1,2,4]:=wena[1,2,4];
-     bestt[1,2,5]:=wena[1,2,5];
+    until entertryb=true;
     end;
-   if (wena[1,2,1]=bestt[1,2,1]) and (wena[1,2,2]>bestt[1,2,2]) then
-    begin
-     bestt[1,2,1]:=wena[1,2,1];
-     bestt[1,2,2]:=wena[1,2,2];
-     bestt[1,2,3]:=wena[1,2,3];
-     bestt[1,2,4]:=wena[1,2,4];
-     bestt[1,2,5]:=wena[1,2,5];
-    end;
-    if (wena[1,2,1]=bestt[1,2,1]) and (wena[1,2,2]=bestt[1,2,2]) and (wena[1,2,3]>bestt[1,2,3]) then
-    begin
-     bestt[1,2,1]:=wena[1,2,1];
-     bestt[1,2,2]:=wena[1,2,2];
-     bestt[1,2,3]:=wena[1,2,3];
-     bestt[1,2,4]:=wena[1,2,4];
-     bestt[1,2,5]:=wena[1,2,5];
-    end;
-     if (wena[1,2,1]=bestt[1,2,1]) and (wena[1,2,2]=bestt[1,2,2]) and (wena[1,2,3]=bestt[1,2,3]) and (wena[1,1,4]>bestt[1,1,4]) then
-    begin
-     bestt[1,2,1]:=wena[1,2,1];
-     bestt[1,2,2]:=wena[1,2,2];
-     bestt[1,2,3]:=wena[1,2,3];
-     bestt[1,2,4]:=wena[1,2,4];
-     bestt[1,2,5]:=wena[1,2,5];
-    end;
-
-                             end;
-                           if km=3 then   //map3
-                             begin
-                                                            kk:=1;
-    setfillstyle(1,black);
-     bar(1,1,1279,1023);
-   for i:=3 downto 0 do
-     begin
-     str(i,c);
-     setcolor(random(10-1+1)+1);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(640,512,c);
-     delay(1000);
-     setfillstyle(1,black);
-     bar(1,1,1279,1023);
-     end;
-
-                                getTime(godz,min,sek,ssek);
-
-
-   vxd1:=-150;
-   vyd1:=500;
-   kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;
-
-   x:=80;
-   y:=900;
-   maP3;
-   repeat
-
-
-   writeln(z);
-   P(kierunek,kolorop);
-   duch(vxd1,vyd1,11,white,kd1);
-   duch(vxd2,vyd2,7,white,kd2);
-   duch(vxd3,vyd3,3,white,kd3);
-
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
-   motion;
-
-   x:=x+10*x1;
-   y:=y+10*y1;
-
-   gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
-   vxd1:=vxd1+xd;
-   vyd1:=vyd1+yd;
-
-   gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
-   vxd2:=vxd2+xd;
-   vyd2:=vyd2+yd;
-
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
-   vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd;
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
-
-   inc(zmiana);
-   until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
-
-
-   gettime(godz2,min2,sek2,ssek2);
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-
-
-
-
-   i:=0;
-   k:=0;
-   repeat
-     inc(i);
-     setcolor(i);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(310,490,'GAME OVER');
-     delay(300);
-     if i=10 then i:=1;
-     inc(k);
-   until k=25;
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-  g:=godz2-godz;
-  m:=min2-min;
-  s:=sek2-sek;
-  ss:=ssek2-ssek;
-
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
-  str(ss,sse);
-
-  repeat
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-  outtextxy(110,410,'Duch zlapal Cie po: ');
-  outtextxy(580,410,go);
-  outtextxy(640,410,':');
-  outtextxy(680,410,mi);
-  outtextxy(740,410,':');
-  outtextxy(780,410,se);
-  outtextxy(860,410,':');
-  outtextxy(900,410,sse);
-  outtextxy(940,410,'. Gratulacje!');
-  readkey;
-  until readkey=chr(27);
-  entermap:=false;
-  wena[1,3,1]:=go;
-  wena[1,3,2]:=mi;
-  wena[1,3,3]:=se;
-  wena[1,3,4]:=sse;
-  wena[1,3,4]:=uzytkownik;
-  if wena[1,3,1]>bestt[1,3,1] then
-    begin
-     bestt[1,3,1]:=wena[1,3,1];
-     bestt[1,3,2]:=wena[1,3,2];
-     bestt[1,3,3]:=wena[1,3,3];
-     bestt[1,3,4]:=wena[1,3,4];
-     bestt[1,3,5]:=wena[1,3,5];
-    end;
-   if (wena[1,3,1]=bestt[1,3,1]) and (wena[1,3,2]>bestt[1,3,2]) then
-    begin
-     bestt[1,3,1]:=wena[1,3,1];
-     bestt[1,3,2]:=wena[1,3,2];
-     bestt[1,3,3]:=wena[1,3,3];
-     bestt[1,3,4]:=wena[1,3,4];
-     bestt[1,3,5]:=wena[1,3,5];
-    end;
-    if (wena[1,3,1]=bestt[1,3,1]) and (wena[1,3,2]=bestt[1,3,2]) and (wena[1,3,3]>bestt[1,3,3]) then
-    begin
-     bestt[1,3,1]:=wena[1,3,1];
-     bestt[1,3,2]:=wena[1,3,2];
-     bestt[1,3,3]:=wena[1,3,3];
-     bestt[1,3,4]:=wena[1,3,4];
-     bestt[1,3,5]:=wena[1,3,5];
-    end;
-     if (wena[1,3,1]=bestt[1,3,1]) and (wena[1,3,2]=bestt[1,3,2]) and (wena[1,3,3]=bestt[1,3,3]) and (wena[1,3,4]>bestt[1,3,4]) then
-    begin
-     bestt[1,3,1]:=wena[1,3,1];
-     bestt[1,3,2]:=wena[1,3,2];
-     bestt[1,3,3]:=wena[1,3,3];
-     bestt[1,3,4]:=wena[1,3,4];
-     bestt[1,3,5]:=wena[1,3,5];
-    end;
-
-                             end;
-                           if km=4 then  //map4
-                             begin
-                                                          kk:=1;
-    setfillstyle(1,black);
-     bar(1,1,1279,1023);
-   for i:=3 downto 0 do
-     begin
-     str(i,c);
-     setcolor(random(10-1+1)+1);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(640,512,c);
-     delay(1000);
-     setfillstyle(1,black);
-     bar(1,1,1279,1023);
-     end;
-
-                                getTime(godz,min,sek,ssek);
-
-
-   vxd1:=-150;
-   vyd1:=500;
-   kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;
-
-   x:=80;
-   y:=900;
-   map4;
-   repeat
-
-
-   writeln(z);
-   P(kierunek,kolorop);
-   duch(vxd1,vyd1,11,white,kd1);
-   duch(vxd2,vyd2,7,white,kd2);
-   duch(vxd3,vyd3,3,white,kd3);
-
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
-   motion;
-
-   x:=x+10*x1;
-   y:=y+10*y1;
-
-   gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
-   vxd1:=vxd1+xd;
-   vyd1:=vyd1+yd;
-
-   gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
-   vxd2:=vxd2+xd;
-   vyd2:=vyd2+yd;
-
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
-   vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd;
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
-
-   inc(zmiana);
-   until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
-
-
-   gettime(godz2,min2,sek2,ssek2);
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-
-
-
-
-   i:=0;
-   k:=0;
-   repeat
-     inc(i);
-     setcolor(i);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(310,490,'GAME OVER');
-     delay(300);
-     if i=10 then i:=1;
-     inc(k);
-   until k=25;
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-  g:=godz2-godz;
-  m:=min2-min;
-  s:=sek2-sek;
-  ss:=ssek2-ssek;
-
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
-  str(ss,sse);
-
-  repeat
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-  outtextxy(110,410,'Duch zlapal Cie po: ');
-  outtextxy(580,410,go);
-  outtextxy(640,410,':');
-  outtextxy(680,410,mi);
-  outtextxy(740,410,':');
-  outtextxy(780,410,se);
-  outtextxy(860,410,':');
-  outtextxy(900,410,sse);
-  outtextxy(940,410,'. Gratulacje!');
-  readkey;
-  until readkey=chr(27);
-  entermap:=false;
-  wena[1,4,1]:=go;
-  wena[1,4,2]:=mi;
-  wena[1,4,3]:=se;
-  wena[1,4,4]:=sse;
-  wena[1,4,5]:=uzytkownik;
-  if wena[1,4,1]>bestt[1,4,1] then
-    begin
-     bestt[1,4,1]:=wena[1,4,1];
-     bestt[1,4,2]:=wena[1,4,2];
-     bestt[1,4,3]:=wena[1,4,3];
-     bestt[1,4,4]:=wena[1,4,4];
-     bestt[1,4,5]:=wena[1,4,5];
-    end;
-   if (wena[1,4,1]=bestt[1,4,1]) and (wena[1,4,2]>bestt[1,4,2]) then
-    begin
-     bestt[1,4,1]:=wena[1,4,1];
-     bestt[1,4,2]:=wena[1,4,2];
-     bestt[1,4,3]:=wena[1,4,3];
-     bestt[1,4,4]:=wena[1,4,4];
-     bestt[1,4,5]:=wena[1,4,5];
-    end;
-    if (wena[1,4,1]=bestt[1,4,1]) and (wena[1,4,2]=bestt[1,4,2]) and (wena[1,4,3]>bestt[1,4,3]) then
-    begin
-     bestt[1,4,1]:=wena[1,4,1];
-     bestt[1,4,2]:=wena[1,4,2];
-     bestt[1,4,3]:=wena[1,4,3];
-     bestt[1,4,4]:=wena[1,4,4];
-     bestt[1,4,5]:=wena[1,4,5];
-    end;
-     if (wena[1,4,1]=bestt[1,4,1]) and (wena[1,4,2]=bestt[1,4,2]) and (wena[1,4,3]=bestt[1,4,3]) and (wena[1,4,4]>bestt[1,4,4]) then
-    begin
-     bestt[1,4,1]:=wena[1,4,1];
-     bestt[1,4,2]:=wena[1,4,2];
-     bestt[1,4,3]:=wena[1,4,3];
-     bestt[1,4,4]:=wena[1,4,4];
-     bestt[1,4,5]:=wena[1,4,5];
-    end;
-
-                             end;
-                           if km=5 then  //map5
-                             begin
-                                                         kk:=1;
-    setfillstyle(1,black);
-     bar(1,1,1279,1023);
-   for i:=3 downto 0 do
-     begin
-     str(i,c);
-     setcolor(random(10-1+1)+1);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(640,512,c);
-     delay(1000);
-     setfillstyle(1,black);
-     bar(1,1,1279,1023);
-     end;
-
-                                getTime(godz,min,sek,ssek);
-
-
-   vxd1:=-150;
-   vyd1:=500;
-   kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;
-
-   x:=80;
-   y:=900;
-   map5;
-   repeat
-
-
-   writeln(z);
-   P(kierunek,kolorop);
-   duch(vxd1,vyd1,11,white,kd1);
-   duch(vxd2,vyd2,7,white,kd2);
-   duch(vxd3,vyd3,3,white,kd3);
-
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
-   motion;
-
-   x:=x+10*x1;
-   y:=y+10*y1;
-
-   gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
-   vxd1:=vxd1+xd;
-   vyd1:=vyd1+yd;
-
-   gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
-   vxd2:=vxd2+xd;
-   vyd2:=vyd2+yd;
-
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
-   vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd;
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
-
-   inc(zmiana);
-   until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
-
-
-   gettime(godz2,min2,sek2,ssek2);
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-
-
-
-
-   i:=0;
-   k:=0;
-   repeat
-     inc(i);
-     setcolor(i);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(310,490,'GAME OVER');
-     delay(300);
-     if i=10 then i:=1;
-     inc(k);
-   until k=25;
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-  g:=godz2-godz;
-  m:=min2-min;
-  s:=sek2-sek;
-  ss:=ssek2-ssek;
-
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
-  str(ss,sse);
-
-  repeat
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-  outtextxy(110,410,'Duch zlapal Cie po: ');
-  outtextxy(580,410,go);
-  outtextxy(640,410,':');
-  outtextxy(680,410,mi);
-  outtextxy(740,410,':');
-  outtextxy(780,410,se);
-  outtextxy(860,410,':');
-  outtextxy(900,410,sse);
-  outtextxy(940,410,'. Gratulacje!');
-  readkey;
-  until readkey=chr(27);
-  entermap:=false;
-  wena[1,5,1]:=go;
-  wena[1,5,2]:=mi;
-  wena[1,5,3]:=se;
-  wena[1,5,4]:=sse;
-  wena[1,5,5]:=uzytkownik;
-  if wena[1,5,1]>bestt[1,5,1] then
-    begin
-     bestt[1,5,1]:=wena[1,5,1];
-     bestt[1,5,2]:=wena[1,5,2];
-     bestt[1,5,3]:=wena[1,5,3];
-     bestt[1,5,4]:=wena[1,5,4];
-     bestt[1,5,5]:=wena[1,5,5];
-    end;
-   if (wena[1,5,1]=bestt[1,5,1]) and (wena[1,5,2]>bestt[1,5,2]) then
-    begin
-     bestt[1,5,1]:=wena[1,5,1];
-     bestt[1,5,2]:=wena[1,5,2];
-     bestt[1,5,3]:=wena[1,5,3];
-     bestt[1,5,4]:=wena[1,5,4];
-     bestt[1,5,5]:=wena[1,5,5];
-    end;
-    if (wena[1,5,1]=bestt[1,5,1]) and (wena[1,5,2]=bestt[1,5,2]) and (wena[1,5,3]>bestt[1,5,3]) then
-    begin
-     bestt[1,5,1]:=wena[1,5,1];
-     bestt[1,5,2]:=wena[1,5,2];
-     bestt[1,5,3]:=wena[1,5,3];
-     bestt[1,5,4]:=wena[1,5,4];
-     bestt[1,5,5]:=wena[1,5,5];
-    end;
-     if (wena[1,5,1]=bestt[1,5,1]) and (wena[1,5,2]=bestt[1,5,2]) and (wena[1,5,3]=bestt[1,5,3]) and (wena[1,5,4]>bestt[1,5,4]) then
-    begin
-     bestt[1,5,1]:=wena[1,5,1];
-     bestt[1,5,2]:=wena[1,5,2];
-     bestt[1,5,3]:=wena[1,5,3];
-     bestt[1,5,4]:=wena[1,5,4];
-     bestt[1,5,5]:=wena[1,5,5];
-    end;
-
-                             end;
-                           if km=6 then   //map6
-                             begin
-                                                            kk:=1;
-    setfillstyle(1,black);
-     bar(1,1,1279,1023);
-   for i:=3 downto 0 do
-     begin
-     str(i,c);
-     setcolor(random(10-1+1)+1);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(640,512,c);
-     delay(1000);
-     setfillstyle(1,black);
-     bar(1,1,1279,1023);
-     end;
-
-                                getTime(godz,min,sek,ssek);
-
-
-   vxd1:=-150;
-   vyd1:=500;
-   kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
-   kd2:=1;
-   vxd3:=200;
-   vyd3:=200;
-   kd1:=1;
-   zmiana:=0;
-
-   x:=80;
-   y:=900;
-   map6;
-   repeat
-
-
-   writeln(z);
-   P(kierunek,kolorop);
-   duch(vxd1,vyd1,11,white,kd1);
-   duch(vxd2,vyd2,7,white,kd2);
-   duch(vxd3,vyd3,3,white,kd3);
-
-   delay(100);
-   P(kierunek,0);
-   duch(vxd1,vyd1,0,0,kd1);
-   duch(vxd2,vyd2,0,0,kd2);
-   duch(vxd3,vyd3,0,0,kd3);
-
-   motion;
-
-   x:=x+10*x1;
-   y:=y+10*y1;
-
-   gonitwa(vxd1,vyd1,kd1);
-   motionduch(vxd1,vyd1,kd1);
-   vxd1:=vxd1+xd;
-   vyd1:=vyd1+yd;
-
-   gonitwa(vxd2,vyd2,kd2);
-   motionduch(vxd2,vyd2,kd2);
-   vxd2:=vxd2+xd;
-   vyd2:=vyd2+yd;
-
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
-   vxd3:=vxd3+xd;
-   vyd3:=vyd3+yd;
-
-
-   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
-
-   inc(zmiana);
-   until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
-   ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20));
-
-
-   gettime(godz2,min2,sek2,ssek2);
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-
-
-
-
-   i:=0;
-   k:=0;
-   repeat
-     inc(i);
-     setcolor(i);
-     settextstyle(TriplexFont,HorizDir,10);
-     outtextxy(310,490,'GAME OVER');
-     delay(300);
-     if i=10 then i:=1;
-     inc(k);
-   until k=25;
-
-   setfillstyle(1,black);
-   bar(1,1,getmaxx,getmaxy);
-
-  g:=godz2-godz;
-  m:=min2-min;
-  s:=sek2-sek;
-  ss:=ssek2-ssek;
-
-  str(g:2,go);
-  str(m:2,mi);
-  str(s:2,se);
-  str(ss,sse);
-
-  repeat
-  setcolor(white);
-  settextstyle(TriplexFont,HorizDir,3);
-  outtextxy(110,410,'Duch zlapal Cie po: ');
-  outtextxy(580,410,go);
-  outtextxy(640,410,':');
-  outtextxy(680,410,mi);
-  outtextxy(740,410,':');
-  outtextxy(780,410,se);
-  outtextxy(860,410,':');
-  outtextxy(900,410,sse);
-  outtextxy(940,410,'. Gratulacje!');
-  readkey;
-  until readkey=chr(27);
-  entermap:=false;
-  wena[1,6,1]:=go;
-  wena[1,6,2]:=mi;
-  wena[1,6,3]:=se;
-  wena[1,6,4]:=sse;
-  wena[1,6,5]:=uzytkownik;
-  if wena[1,6,1]>bestt[1,6,1] then
-    begin
-     bestt[1,6,1]:=wena[1,6,1];
-     bestt[1,6,2]:=wena[1,6,2];
-     bestt[1,6,3]:=wena[1,6,3];
-     bestt[1,6,4]:=wena[1,6,4];
-     bestt[1,6,5]:=wena[1,6,5];
-    end;
-   if (wena[1,6,1]=bestt[1,6,1]) and (wena[1,6,2]>bestt[1,6,2]) then
-    begin
-     bestt[1,6,1]:=wena[1,6,1];
-     bestt[1,6,2]:=wena[1,6,2];
-     bestt[1,6,3]:=wena[1,6,3];
-     bestt[1,6,4]:=wena[1,6,4];
-     bestt[1,6,5]:=wena[1,6,5];
-    end;
-    if (wena[1,6,1]=bestt[1,6,1]) and (wena[1,6,2]=bestt[1,6,2]) and (wena[1,6,3]>bestt[1,6,3]) then
-    begin
-     bestt[1,6,1]:=wena[1,6,1];
-     bestt[1,6,2]:=wena[1,6,2];
-     bestt[1,6,3]:=wena[1,6,3];
-     bestt[1,6,4]:=wena[1,6,4];
-     bestt[1,6,5]:=wena[1,6,5];
-    end;
-     if (wena[1,6,1]=bestt[1,6,1]) and (wena[1,6,2]=bestt[1,6,2]) and (wena[1,6,3]=bestt[1,6,3]) and (wena[1,6,4]>bestt[1,6,4]) then
-    begin
-     bestt[1,6,1]:=wena[1,6,1];
-     bestt[1,6,2]:=wena[1,6,2];
-     bestt[1,6,3]:=wena[1,6,3];
-     bestt[1,6,4]:=wena[1,6,4];
-     bestt[1,6,5]:=wena[1,6,5];
-    end;
-
-                             end;}
-                   until entermap=false;
-
-                     end;
-                  { if kt=2 then
-                     begin
-                      minimapy;
-                      setcolor(random(10-1+1)+1);
-                      settextstyle(TriplexFont,HorizDir,8);
-                      outtextxy(400,100,'WHICH MAP');
-                      xk:=0;
-                      yk:=300;
-                      km:=1;
-                      switch:=2;
-                      adel:=true;
-                      REPEAT
-                    //  kursormap(xk,yk);
-
-                     if del(adel) then inc(switch);
-                     if switch mod 2=0 then kursormenutwarz(yk,xk)
-                     else kursormenuzamkniety(yk,xk);
-                     if switch=100 then switch:=2;
-
-                     xk:=0;
-                     if keypressed then
-                       begin
-                         przyciskmap:=readkey;
-                         przyciskmap:=upcase(przyciskmap);
-                         if przyciskmap=chr(68) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            xk:=xk+400;
-                            km:=km+1;
-                           end;
-                         if przyciskmap=chr(83) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            yk:=yk+300;
-                            km:=km+3;
-                           end;
-
-                         if przyciskmap=chr(65) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            xk:=xk-400;
-                            km:=km-1;
-                           end;
-                         if przyciskmap=chr(87) then
-                           begin
-                            kursormenuzmaz(yk,xk);
-                            yk:=yk-300;
-                            km:=km-3;
-                           end;
-                         if przyciskmap=chr(13) then graj:=true;
-                         if przyciskmap=chr(13) then entermap:=false;
-                       end;
-                       if xk>800 then
-                          begin
-                           xk:=xk-400;
-                           km:=km-1;
-                           end;
-                       if xk<0 then
-                         begin
-                          xk:=xk+400;
-                          km:=km+1;
-                         end;
-                       if yk>600 then
-                         begin
-                          yk:=yk-300;
-                          km:=km-3;
-                         end;
-                       if yk<300 then
-                         begin
-                          yk:=yk+300;
-                          km:=km+3;
-                         end;
-                        if przyciskmap=chr(27) then
-                           begin
-                             kursormenuzmaz(yk,xk);
-                             setfillstyle(1,black);
-                             bar(1,1,getmaxx,getmaxy);
-                             entermap:=false;
-                             yk:=200;
-                             setcolor(random(10-1+1)+1);
-                             settextstyle(TriplexFont,HorizDir,3);
-                             outtextxy(400,350,'CHOOSE MODE');
-                             setcolor(random(10-1+1)+1);
-                             outtextxy(400,450,' Survival');
-                             setcolor(random(10-1+1)+1);
-                             outtextxy(400,550,' Adventure');
-                             entertryb:=false;
-                             przyciskmap:=chr(1);
-                          end;
-
-                       if graj=true then
-                         begin
-                           if km=1 then //map1
-                             begin
-
-                             end;
-                           if km=2 then //map2
-                             begin
-
-                             end;
-                           if km=3 then  //map3
-                             begin
-
-                             end;
-                           if km=4 then  //map4
-                             begin
-
-                             end;
-                           if km=5 then   //map5
-                             begin
-
-                             end;
-                           if km=6 then   //map6
-                             begin
-
-                             end;
-                         end;
-                   until entermap=false;
-                     end;}
-                 end;
-          until entertryb=true;
-         end;
-
-
-
-
-
-
-
-
     end;
   until koniec=true;
 
@@ -8499,62 +7373,15 @@ until readkey=chr(27);
   close(sur);
 
 
- // for i:=1 to 2 do
-  //  begin
-   //   for j:=1 to 6 do uzytkownikb[i,j]:=bestt[i,j,5];
-
-   // end;
- { writeln(bestt[1,1,1]);
-  writeln(bestt[1,1,2]);
-  writeln(bestt[1,1,3]);
-  writeln(bestt[1,1,4]);
-  writeln(bestt[1,1,5]);
-
-  writeln(wena[1,1,1]);
-  writeln(wena[1,1,2]);
-  writeln(wena[1,1,3]);
-  writeln(wena[1,1,4]);
-  writeln(wena[1,1,5]);
-  writeln(uzytkownik);
-
-  writeln(cojarobie[1,1,1]);
-  writeln(cojarobie[1,1,2]);
-  writeln(cojarobie[1,1,3]);
-  writeln(cojarobie[1,1,4]);
-
-  writeln(cojarobie2[1,1,1]);
-  writeln(cojarobie2[1,1,2]);
-  writeln(cojarobie2[1,1,3]);
-  writeln(cojarobie2[1,1,4]);
-
-  assign(hero2,'C:\Wyniki\hero2.txt');
-  rewrite(hero2); ;
-  //uzytkownikbe:=uzytkownik;
-  for linijka:=1 to length(uzytkownik) do
-         begin
-          write(hero2,uzytkownik[linijka]);
-         end;
-  close(hero2);}
-
- // writeln('1');
   assign(hero,'C:\Wyniki\hero.txt');
   rewrite(hero);
   for j:=1 to 2 do
     begin
      for i:=1 to 6 do
       begin
-       //writeln('2');
-       //uzytkownikbe:=bestt[j,i,5];
-       //writeln(uzytkownikbe);
-       //writeln('3');
-       writeln(bestt[j,i,5]);
        writeln(hero,bestt[j,i,5]);
-         //writeln('4');
-        // end;
-     // writeln(hero,0);
-      end;
+        end;
     end;
   close(hero);
-  //writeln('5');
 
 end.
