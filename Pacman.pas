@@ -5,9 +5,9 @@ uses crt,wincrt, graph,dos;
 var
   ster, tryb : integer;
 
-  go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
+  wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
 
-  x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
+  x, y, i,j,i2, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
   switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,hb1,hb2,mb1, licznik, mb2,sb1,sb2,ssb1,ssb2:word;
@@ -2863,19 +2863,26 @@ begin
     begin
      for i:=1 to 6 do
       begin
-       repeat
-        v:=1;
-        tomek:=false;
-        readln(hero,v);
-        if l<>0 then uzytkownikbe[v]:=chr(v)
-          else tomek:=true;
-        inc(v);
-       until ((tomek=true) and (v>1)) or (uzytkownikbe='');
-       uzytkownikb[j,i]:=uzytkownikbe;
-       uzytkownikbe:='';
+      // repeat
+      //  v:=1;
+      //  tomek:=false;
+        readln(hero,uzytkownikb[j,i]);
+        writeln(uzytkownikb[j,i]);
+
+         // else tomek:=true;
+       // inc(v);
+      // until ((tomek=true) and (v>1)) or (uzytkownikbe='');
+      // uzytkownikb[j,i]:=uzytkownikbe;
       end;
     end;
   close(hero);
+
+for j:=1 to 2 do
+  for i:=1 to 6 do
+   begin
+    writeln(i,',',j);
+    writeln(uzytkownikb[j,i]);
+   end;
 
     assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
@@ -8163,39 +8170,62 @@ until readkey=chr(27);
   close(sur);
 
 
-  for i:=1 to 2 do
-    begin
-      for j:=1 to 6 do uzytkownikb[1,j]:=bestt[i,j,5];
+ // for i:=1 to 2 do
+  //  begin
+   //   for j:=1 to 6 do uzytkownikb[i,j]:=bestt[i,j,5];
 
-    end;
+   // end;
+ { writeln(bestt[1,1,1]);
+  writeln(bestt[1,1,2]);
+  writeln(bestt[1,1,3]);
+  writeln(bestt[1,1,4]);
+  writeln(bestt[1,1,5]);
+
+  writeln(wena[1,1,1]);
+  writeln(wena[1,1,2]);
+  writeln(wena[1,1,3]);
+  writeln(wena[1,1,4]);
+  writeln(wena[1,1,5]);
   writeln(uzytkownik);
+
+  writeln(cojarobie[1,1,1]);
+  writeln(cojarobie[1,1,2]);
+  writeln(cojarobie[1,1,3]);
+  writeln(cojarobie[1,1,4]);
+
+  writeln(cojarobie2[1,1,1]);
+  writeln(cojarobie2[1,1,2]);
+  writeln(cojarobie2[1,1,3]);
+  writeln(cojarobie2[1,1,4]);
+
   assign(hero2,'C:\Wyniki\hero2.txt');
-  rewrite(hero2);
-  writeln('otwarcie');
+  rewrite(hero2); ;
   //uzytkownikbe:=uzytkownik;
   for linijka:=1 to length(uzytkownik) do
          begin
-          writeln('srodek',linijka);
           write(hero2,uzytkownik[linijka]);
          end;
-  writeln('zamkniecie');
-  close(hero2);
+  close(hero2);}
 
+ // writeln('1');
   assign(hero,'C:\Wyniki\hero.txt');
   rewrite(hero);
   for j:=1 to 2 do
     begin
      for i:=1 to 6 do
       begin
-       uzytkownikbe:=uzytkownikb[j,i];
-       for linijka:=1 to length(uzytkownikbe) do
-         begin
-          write(hero,ord(uzytkownikbe[linijka]));
-         end;
-      writeln(hero,0);
+       //writeln('2');
+       //uzytkownikbe:=bestt[j,i,5];
+       //writeln(uzytkownikbe);
+       //writeln('3');
+       writeln(bestt[j,i,5]);
+       writeln(hero,bestt[j,i,5]);
+         //writeln('4');
+        // end;
+     // writeln(hero,0);
       end;
     end;
   close(hero);
-
+  //writeln('5');
 
 end.
