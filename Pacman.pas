@@ -52,7 +52,7 @@ var
   cojarobie2 : array[1..2,1..10,1..100] of longint;
   opcje : array[1..5] of integer;
 
-  sett,sur,adv,hero : text;
+  sett,sur,adv,hero, hero2 : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
 
   const
@@ -2971,13 +2971,13 @@ for j:=1 to 6 do
       outtextxy(50,450,'4. Zastosuj.');
       kolor[3]:=random(10-1+1)+1;
       while kolor[3]=kolor[2] do
-       kolor[3]:=random(10-1+1)+1;
+      kolor[3]:=random(10-1+1)+1;
       setcolor(kolor[3]);
       settextstyle(TriplexFont,HorizDir,5);
       outtextxy(100,500,'Podaj nazwe uzytkownika:');
       i:=0;
-       j:=1;
-       x:=2;
+      j:=1;
+      x:=2;
       kolor[0]:=10;
       repeat
        kolor[x]:=random(5-1+1)+1;
@@ -6952,7 +6952,7 @@ repeat
      end;
 
      getTime(godz,min,sek,ssek);
-     licznik:=0;
+
 
    vxd1:=-150;
    vyd1:=500;
@@ -8168,6 +8168,19 @@ until readkey=chr(27);
       for j:=1 to 6 do uzytkownikb[1,j]:=bestt[i,j,5];
 
     end;
+  writeln(uzytkownik);
+  assign(hero2,'C:\Wyniki\hero2.txt');
+  rewrite(hero2);
+  writeln('otwarcie');
+  //uzytkownikbe:=uzytkownik;
+  for linijka:=1 to length(uzytkownik) do
+         begin
+          writeln('srodek',linijka);
+          write(hero2,uzytkownik[linijka]);
+         end;
+  writeln('zamkniecie');
+  close(hero2);
+
   assign(hero,'C:\Wyniki\hero.txt');
   rewrite(hero);
   for j:=1 to 2 do
@@ -8177,7 +8190,7 @@ until readkey=chr(27);
        uzytkownikbe:=uzytkownikb[j,i];
        for linijka:=1 to length(uzytkownikbe) do
          begin
-          writeln(hero,ord(uzytkownikbe[linijka]));
+          write(hero,ord(uzytkownikbe[linijka]));
          end;
       writeln(hero,0);
       end;
