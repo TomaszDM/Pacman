@@ -7,7 +7,7 @@ var
 
   wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
 
-  x, y, i,j,i2, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
+  x, y, i,j,i2, zmiana,vxp, vyp, iv,vxd1,vyd1,vxd4,vyd4, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
   switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,hb1,hb2,mb1,pkt, licznik, mb2,sb1,sb2,ssb1,ssb2:word;
@@ -186,7 +186,7 @@ begin
 end;
 
 
-procedure P2(kierunek, kolor : byte);
+procedure P(kierunek, kolor : byte);
 
 begin
   if kierunek=1 then
@@ -240,7 +240,7 @@ end;
 
 
 
-procedure P(kierunek, kolor : byte);
+procedure P2(kierunek, kolor : byte);
 
 begin
   if kierunek=1 then
@@ -293,6 +293,137 @@ begin
 end;
 
 procedure duch(vxd,vyd, c, ec, kd:integer);
+var
+m,q:integer;
+
+begin
+  setcolor(c);                                    //duszek 1
+   if kd=1 then
+   begin
+     setcolor(c);                                    //duszek a  basic
+     setfillstyle(1,c);
+     bar((216 div 2)+vxd,(204 div 2)+vyd,(244 div 2)+vxd,(210 div 2)+vyd);
+     bar((218 div 2)+vxd,(198 div 2)+vyd,(242 div 2)+vxd,(204 div 2)+vyd);
+     bar((220 div 2)+vxd,(194 div 2)+vyd,(240 div 2)+vxd,(198 div 2)+vyd);
+     bar((222 div 2)+vxd,(192 div 2)+vyd,(238 div 2)+vxd,(196 div 2)+vyd);
+     bar((226 div 2)+vxd,(190 div 2)+vyd,(234 div 2)+vxd,(192 div 2)+vyd);
+     bar((216 div 2)+vxd,(210 div 2)+vyd,(220 div 2)+vxd,(214 div 2)+vyd);
+     bar((222 div 2)+vxd,(210 div 2)+vyd,(228 div 2)+vxd,(214 div 2)+vyd);
+     bar((232 div 2)+vxd,(210 div 2)+vyd,(238 div 2)+vxd,(214 div 2)+vyd);
+     bar((240 div 2)+vxd,(210 div 2)+vyd,(244 div 2)+vxd,(214 div 2)+vyd);
+     setfillstyle(1,black);
+     bar((218 div 2)+vxd,(212 div 2)+vyd,(223 div 2)+vxd,(214 div 2)+vyd);
+     bar((236 div 2)+vxd,(212 div 2)+vyd,(242 div 2)+vxd,(214 div 2)+vyd);
+
+
+     setfillstyle(1,ec);                        //OCZY
+     bar((222 div 2)+vxd,(196 div 2)+vyd,(226 div 2)+vxd,(206 div 2)+vyd);
+     bar((220 div 2)+vxd,(198 div 2)+vyd,(228 div 2)+vxd,(204 div 2)+vyd);
+     bar((234 div 2)+vxd,(196 div 2)+vyd,(238 div 2)+vxd,(206 div 2)+vyd);
+     bar((232 div 2)+vxd,(198 div 2)+vyd,(240 div 2)+vxd,(204 div 2)+vyd);
+     setfillstyle(1,black);
+     bar((219 div 2)+vxd,(200 div 2)+vyd,(223 div 2)+vxd,(204 div 2)+vyd);
+     bar((231 div 2)+vxd,(200 div 2)+vyd,(235 div 2)+vxd,(204 div 2)+vyd);
+   end
+   else
+   if kd=2 then
+   begin
+      m:=vyd;
+      q:=vxd;
+   setcolor(c);                                    //duszek s  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1, ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((222 div 2)+q,(201 div 2)+m,(226 div 2)+q,(205 div 2)+m);
+   bar((234 div 2)+q,(201 div 2)+m,(238 div 2)+q,(205 div 2)+m);
+
+
+   end
+   else
+   if kd=3 then
+   begin
+     m:=vyd;
+     q:=vxd;
+   setcolor(c);                                    //duszek d  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1, ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((223 div 2)+q,(200 div 2)+m,(227 div 2)+q,(204 div 2)+m);
+   bar((235 div 2)+q,(200 div 2)+m,(239 div 2)+q,(204 div 2)+m);
+   end
+   else
+   if kd=4 then
+   begin
+      m:=vyd;
+      q:=vxd;
+   setcolor(c);                                    //duszek w  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1,ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((222 div 2)+q,(198 div 2)+m,(226 div 2)+q,(202 div 2)+m);
+   bar((234 div 2)+q,(198 div 2)+m,(238 div 2)+q,(202 div 2)+m);
+
+
+   end;
+
+
+end;
+
+procedure duch2(vxd,vyd, c, ec, kd:integer);
 var
 m,q:integer;
 
@@ -7028,18 +7159,21 @@ repeat
      getTime(godz,min,sek,ssek);
 
 
-   vxd1:=-150;
-   vyd1:=500;
+   vxd1:=-60;
+   vyd1:=-50;
    kd1:=1;
-   vxd2:=990;
-   vyd2:=750;
+   vxd2:=1110;
+   vyd2:=-50;
    kd2:=1;
-   vxd3:=990;
-   vyd3:=400;
+   vxd3:=1110;
+   vyd3:=868;
    kd1:=1;
    zmiana:=0;
    x:=80;
    y:=900;
+   vxd4:=-60;
+   vyd4:=868;
+
 
    {vxd1:=210;
    vyd1:=60;
@@ -7052,8 +7186,8 @@ repeat
    kd1:=1;
    zmiana:=0;}
 
-   x:=520;
-   y:=400;
+   x:=650;
+   y:=550;
    if km=1 then maap1
       else if km=2 then map2
            else if km=3 then map3

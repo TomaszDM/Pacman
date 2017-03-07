@@ -360,6 +360,138 @@ for xsiatka:=1 to 41 do
  end;
 
 end;
+
+procedure duch(vxd,vyd, c, ec, kd:integer);
+var
+m,q:integer;
+
+begin
+  setcolor(c);                                    //duszek 1
+   if kd=1 then
+   begin
+     setcolor(c);                                    //duszek a  basic
+     setfillstyle(1,c);
+     bar((216 div 2)+vxd,(204 div 2)+vyd,(244 div 2)+vxd,(210 div 2)+vyd);
+     bar((218 div 2)+vxd,(198 div 2)+vyd,(242 div 2)+vxd,(204 div 2)+vyd);
+     bar((220 div 2)+vxd,(194 div 2)+vyd,(240 div 2)+vxd,(198 div 2)+vyd);
+     bar((222 div 2)+vxd,(192 div 2)+vyd,(238 div 2)+vxd,(196 div 2)+vyd);
+     bar((226 div 2)+vxd,(190 div 2)+vyd,(234 div 2)+vxd,(192 div 2)+vyd);
+     bar((216 div 2)+vxd,(210 div 2)+vyd,(220 div 2)+vxd,(214 div 2)+vyd);
+     bar((222 div 2)+vxd,(210 div 2)+vyd,(228 div 2)+vxd,(214 div 2)+vyd);
+     bar((232 div 2)+vxd,(210 div 2)+vyd,(238 div 2)+vxd,(214 div 2)+vyd);
+     bar((240 div 2)+vxd,(210 div 2)+vyd,(244 div 2)+vxd,(214 div 2)+vyd);
+     setfillstyle(1,black);
+     bar((218 div 2)+vxd,(212 div 2)+vyd,(223 div 2)+vxd,(214 div 2)+vyd);
+     bar((236 div 2)+vxd,(212 div 2)+vyd,(242 div 2)+vxd,(214 div 2)+vyd);
+
+
+     setfillstyle(1,ec);                        //OCZY
+     bar((222 div 2)+vxd,(196 div 2)+vyd,(226 div 2)+vxd,(206 div 2)+vyd);
+     bar((220 div 2)+vxd,(198 div 2)+vyd,(228 div 2)+vxd,(204 div 2)+vyd);
+     bar((234 div 2)+vxd,(196 div 2)+vyd,(238 div 2)+vxd,(206 div 2)+vyd);
+     bar((232 div 2)+vxd,(198 div 2)+vyd,(240 div 2)+vxd,(204 div 2)+vyd);
+     setfillstyle(1,black);
+     bar((219 div 2)+vxd,(200 div 2)+vyd,(223 div 2)+vxd,(204 div 2)+vyd);
+     bar((231 div 2)+vxd,(200 div 2)+vyd,(235 div 2)+vxd,(204 div 2)+vyd);
+   end
+   else
+   if kd=2 then
+   begin
+      m:=vyd;
+      q:=vxd;
+   setcolor(c);                                    //duszek s  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1, ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((222 div 2)+q,(201 div 2)+m,(226 div 2)+q,(205 div 2)+m);
+   bar((234 div 2)+q,(201 div 2)+m,(238 div 2)+q,(205 div 2)+m);
+
+
+   end
+   else
+   if kd=3 then
+   begin
+     m:=vyd;
+     q:=vxd;
+   setcolor(c);                                    //duszek d  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1, ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((223 div 2)+q,(200 div 2)+m,(227 div 2)+q,(204 div 2)+m);
+   bar((235 div 2)+q,(200 div 2)+m,(239 div 2)+q,(204 div 2)+m);
+   end
+   else
+   if kd=4 then
+   begin
+      m:=vyd;
+      q:=vxd;
+   setcolor(c);                                    //duszek w  basic
+   setfillstyle(1,c);
+   bar((216 div 2)+q,(204 div 2)+m,(244 div 2)+q,(210 div 2)+m);
+   bar((218 div 2)+q,(198 div 2)+m,(242 div 2)+q,(204 div 2)+m);
+   bar((220 div 2)+q,(194 div 2)+m,(240 div 2)+q,(198 div 2)+m);
+   bar((222 div 2)+q,(192 div 2)+m,(238 div 2)+q,(196 div 2)+m);
+   bar((226 div 2)+q,(190 div 2)+m,(234 div 2)+q,(192 div 2)+m);
+   bar((216 div 2)+q,(210 div 2)+m,(220 div 2)+q,(214 div 2)+m);
+   bar((222 div 2)+q,(210 div 2)+m,(228 div 2)+q,(214 div 2)+m);
+   bar((232 div 2)+q,(210 div 2)+m,(238 div 2)+q,(214 div 2)+m);
+   bar((240 div 2)+q,(210 div 2)+m,(244 div 2)+q,(214 div 2)+m);
+   setfillstyle(1,black);
+   bar((218 div 2)+q,(212 div 2)+m,(223 div 2)+q,(214 div 2)+m);
+   bar((236 div 2)+q,(212 div 2)+m,(242 div 2)+q,(214 div 2)+m);
+
+
+   setfillstyle(1,ec);                        //OCZY
+   bar((222 div 2)+q,(196 div 2)+m,(226 div 2)+q,(206 div 2)+m);
+   bar((220 div 2)+q,(198 div 2)+m,(228 div 2)+q,(204 div 2)+m);
+   bar((234 div 2)+q,(196 div 2)+m,(238 div 2)+q,(206 div 2)+m);
+   bar((232 div 2)+q,(198 div 2)+m,(240 div 2)+q,(204 div 2)+m);
+   setfillstyle(1,black);
+   bar((222 div 2)+q,(198 div 2)+m,(226 div 2)+q,(202 div 2)+m);
+   bar((234 div 2)+q,(198 div 2)+m,(238 div 2)+q,(202 div 2)+m);
+
+
+   end;
+
+
+end;
+
 //***************************************************************************\\
 
 begin
@@ -367,13 +499,17 @@ begin
   randomize;
 
   initgraph(ster, tryb ,'  ');
-  map3;
-  siateczka;
-  siatka(30,30,0);
+//  map3;
+//  siateczka;
+//  siatka(30,30,0);
 
 //  map3;
-readln;
+ repeat
+      duch(100,100,3,white,1);
 
+
+ until keypressed;
+readln;
 
   CloseGraph;
 
