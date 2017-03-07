@@ -7334,6 +7334,21 @@ repeat
   m:=min2-min;
   s:=sek2-sek;
   ss:=ssek2-ssek;
+   if ss<0 then
+     begin
+       s:=s-1;
+       ss:=ss+100;
+     end;
+   if s<0 then
+     begin
+      m:=m-1;
+      s:=s+60;
+     end;
+   if m<0 then
+    begin
+      g:=g-1;
+      m:=m+60;
+    end;
 {  g:=0;
   m:=0;
   s:=0;
