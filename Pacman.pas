@@ -5417,8 +5417,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,1,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,1,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -5428,8 +5427,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,1,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,1,j]);
                                outtextxy(880,500,'.');
                                end;
 
@@ -5659,8 +5657,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,2,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,2,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -5670,8 +5667,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,2,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,2,j]);
                                outtextxy(880,500,'.');
                                end;
 
@@ -5909,8 +5905,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,3,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,3,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -5920,8 +5915,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,3,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,3,j]);
                                outtextxy(880,500,'.');
                                end;
 
@@ -6182,8 +6176,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,4,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,4,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -6193,8 +6186,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,4,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,4,j]);
                                outtextxy(880,500,'.');
                                end;
 
@@ -6437,8 +6429,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,5,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,5,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -6448,8 +6439,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,5,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,5,j]);
                                outtextxy(880,500,'.');
                                end;
 
@@ -6736,8 +6726,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+100*i,'BEST: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,300,bestt[2,6,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,300,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,300,bestt[2,6,j]);
                                outtextxy(880,300,'.');
                                end;
 
@@ -6747,8 +6736,7 @@ repeat
                                setcolor(random(10-1+1)+1);
                                settextstyle(TriplexFont,HorizDir,3);
                                outtextxy(150,200+300*i,'YOUR: ');
-                               for j:=1 to 5 do outtextxy(170+100*j,500,wena[2,6,j]);
-                               for j:=1 to 4 do outtextxy(240+100*j,500,':');
+                               for j:=1 to 5 do outtextxy(170+50*j,500,wena[2,6,j]);
                                outtextxy(880,500,'.');
                               end;
                               zerowanie;
