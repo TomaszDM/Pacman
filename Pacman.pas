@@ -3094,7 +3094,13 @@ begin
 esc:=false;
 repeat
   n:=readkey;
-  if ord(n)=48 then for j:=1 to 4 do bestt[1,1,j]:='0';
+  if ord(n)=48 then for j:=1 to 4 do
+   begin
+    bestt[kt,km,j]:='0';
+    cojarobie[kt,km,j]:=0;
+    uzytkownikb[kt,km]:='';
+   end;
+
   if ord(n)<>27 then esc:=false
      else esc:=true;
 until esc;
