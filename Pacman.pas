@@ -10,7 +10,7 @@ var
   x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
-  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,hb1,hb2,mb1, licznik, mb2,sb1,sb2,ssb1,ssb2:word;
+  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,hb1,hb2,mb1,pkt, licznik, mb2,sb1,sb2,ssb1,ssb2:word;
 
   ss,g,m,s : longint;
 
@@ -71,6 +71,85 @@ procedure testmap;
   end;
 
 
+procedure siateczka;
+var
+pozw1,pozw2:boolean;
+begin
+for i:=1 to 41 do
+ begin
+  for j:=1 to 41 do
+    begin
+     setfillstyle(1,white);
+     pozw1:=false;
+     pozw2:=false;
+
+     if (getpixel(30*i,30*j)=black) and (getpixel(30*i-2,30*j)=black) and (getpixel(30*i+2,30*j)=black) then pozw1:=true;
+     if (getpixel(30*i,30*j-2)=black) and (getpixel(30*i,30*j+2)=black) then pozw2:=true;
+     if pozw1 and pozw2 then
+       begin
+        setcolor(white);
+        fillellipse(30*i,30*j,3,3);
+       end;
+     setcolor(black);
+     setfillstyle(1,black);
+     bar(490,450,790,564);
+     bar(565,564,700,596);
+     setcolor(white);
+   end;
+   end;
+end;
+function siatka(x,y,pkt:longint):integer;
+var
+xsiatka,ysiatka,i,j,k:integer;
+znajdzki: array[1..1682] of integer;
+znajdzki2: array[1..1682] of integer;
+pozw1,pozw2:boolean;
+punkty: array[1..1682] of boolean;
+begin
+i:=1;
+if getpixel(30,30)=black then for xsiatka:=1 to 41 do
+ begin
+  for ysiatka:=1 to 41 do
+    begin
+        znajdzki[i]:=30*xsiatka;
+        znajdzki2[i]:=30*ysiatka;
+        punkty[i]:=false;
+        inc(i);
+    end;
+  end;
+
+j:=(x div 30);
+k:=(y div 30);
+if (znajdzki[j]=x) and (znajdzki2[k]=y)  then
+      begin
+        punkty[j*k]:=true;
+        pkt:=pkt+10;
+      end;
+
+
+j:=1;
+for xsiatka:=1 to 41 do
+ begin
+  for ysiatka:=1 to 41 do
+    begin
+     setfillstyle(1,white);
+     pozw1:=false;
+     pozw2:=false;
+
+     if (getpixel(30*xsiatka,30*ysiatka)=black) and (getpixel(30*xsiatka-2,30*ysiatka)=black) and (getpixel(30*xsiatka+2,30*ysiatka)=black) then pozw1:=true;
+     if (getpixel(30*xsiatka,30*ysiatka-2)=black) and (getpixel(30*xsiatka,30*ysiatka+2)=black) then pozw2:=true;
+     if pozw1 and pozw2 then
+         if punkty[j]=false then fillellipse(30*xsiatka,30*ysiatka,3,3);
+     setcolor(black);
+     setfillstyle(1,black);
+     bar(490,450,790,564);
+     bar(565,564,700,596);
+     setcolor(white);
+     inc(j);
+    end;
+ end;
+
+end;
 
 function pokazvki(vxd1,vyd1,x,y,vxd2,vxd3,vyd2,vyd3:integer):integer;
 begin
@@ -3390,7 +3469,7 @@ repeat
                 setcolor(10);
                 outtextxy(450,140,'MADE IN POLAND');
                 settextstyle(TriplexFont,HorizDir,3);
-                outtextxy(460,800,'RELEASED 25.05.2016');
+                outtextxy(460,800,'RELEASED 08.03.2017');
 
 
 
