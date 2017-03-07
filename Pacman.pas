@@ -7142,9 +7142,107 @@ repeat
                              yk:=190;
                              graj:=false;
                           end;
+               if entermap=true then
+                 begin
+                   graj:=false;
+                   setfillstyle(1,black);
+                   bar(1,1,getmaxx,getmaxy);
+                   if kt=2 then  //przeskok do minimap
+                     begin
+                      setcolor(random(10-1+1)+1);
+                      settextstyle(TriplexFont,HorizDir,8);
+                      outtextxy(400,100,'WHICH MAP');
+                      minimapy;
+                      xk:=70;
+                      yk:=170;
+                      km:=1;
+                      switch:=2;
+                      adel:=true;
 
-                       if graj=true then
+
+                      REPEAT
+                     // kursormap(xk,yk);
+                     if del(adel) then inc(switch);
+                     if switch mod 2=0 then kursormenutwarz(yk,xk)
+                        else kursormenuzamkniety(yk,xk);
+                     if switch=100 then switch:=2;
+
+
+                     if keypressed then
+                       begin
+                         przyciskmap:=readkey;
+                         przyciskmap:=upcase(przyciskmap);
+                         if przyciskmap=chr(68) then
+                           begin
+                            kursormenuzmaz(yk,xk);
+                            xk:=xk+400;
+                            km:=km+1;
+                           end;
+                         if przyciskmap=chr(83) then
+                           begin
+                            kursormenuzmaz(yk,xk);
+                            yk:=yk+300;
+                            km:=km+3;
+                           end;
+
+                         if przyciskmap=chr(65) then
+                           begin
+                            kursormenuzmaz(yk,xk);
+                            xk:=xk-400;
+                            km:=km-1;
+                           end;
+                         if przyciskmap=chr(87) then
+                           begin
+                            kursormenuzmaz(yk,xk);
+                            yk:=yk-300;
+                            km:=km-3;
+                           end;
+                         if przyciskmap=chr(13) then graj:=true;
+                         if przyciskmap=chr(13) then entermap:=false;
+                       end;
+                       if xk>870 then
+                          begin
+                           xk:=xk-400;
+                           km:=km-1;
+                           end;
+                       if xk<0 then
                          begin
+                          xk:=xk+400;
+                          km:=km+1;
+                         end;
+                       if yk>470 then
+                         begin
+                          yk:=yk-300;
+                          km:=km-3;
+                         end;
+                       if yk<100 then
+                         begin
+                          yk:=yk+300;
+                          km:=km+3;
+                         end;
+                        if przyciskmap=chr(27) then
+                           begin
+                             kursormenuzmaz(yk,xk);
+                             setfillstyle(1,black);
+                             bar(1,1,getmaxx,getmaxy);
+                             entermap:=false;
+                             yk:=100;
+                             setcolor(random(10-1+1)+1);
+                             settextstyle(TriplexFont,HorizDir,3);
+                             outtextxy(400,350,'CHOOSE MODE');
+                             setcolor(random(10-1+1)+1);
+                             outtextxy(400,450,' Survival');
+                             setcolor(random(10-1+1)+1);
+                             outtextxy(400,550,' Adventure');
+                             entertryb:=false;
+                             przyciskmap:=chr(1);
+                             xk:=240;
+                             yk:=190;
+                             graj:=false;
+                          end;
+
+                       until graj=true; //then
+                        // begin
                           // if km=1 then //map1
                             // begin
 
@@ -7348,11 +7446,22 @@ until readkey=chr(27);
 //if keypressed then readkey:=keypressed;
   entermap:=false;
   str(pkt,pkts);
+  if kt=2 then
+  begin
   wena[kt,km,1]:='0';
   wena[kt,km,2]:='0';
   wena[kt,km,3]:='0';
   wena[kt,km,4]:=pkts;
   wena[kt,km,5]:=uzytkownik;
+  end;
+  if kt=1 then
+  begin
+  wena[kt,km,1]:=go;
+  wena[kt,km,2]:=mi;
+  wena[kt,km,3]:=se;
+  wena[kt,km,4]:=sse;
+  wena[kt,km,5]:=uzytkownik;
+  end;
   if cojarobie2[kt,km,1]>cojarobie[kt,km,1] then
     begin
      bestt[kt,km,1]:=wena[kt,km,1];
@@ -7405,7 +7514,7 @@ until readkey=chr(27);
      cojarobie[kt,km,4]:=cojarobie2[kt,km,4];
      cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
-                          end;
+    end;
                           { if km=2 then   //map2
                              begin
                                                       kk:=1;
