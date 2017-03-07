@@ -6999,7 +6999,7 @@ repeat
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
-   duch(vxd3,vyd3,3,white,kd3);//3
+   duch(vxd3,vyd3,5,white,kd1);//3
 
  //  delay(200);
 
@@ -7007,7 +7007,7 @@ repeat
    P(kierunek,0);//PACMAN
    duch(vxd1,vyd1,0,0,kd1);//1
    duch(vxd2,vyd2,0,0,kd2);//2
-   duch(vxd3,vyd3,0,0,kd3);//3
+   duch(vxd3,vyd3,0,0,kd1);//3
 
    motion;
 
@@ -7027,8 +7027,8 @@ repeat
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
   // DUCH3
-   gonitwa(vxd3,vyd3,kd3);
-   motionduch(vxd3,vyd3,kd3);
+   gonitwa(vxd3,vyd3,kd1);
+   motionduch(vxd3,vyd3,kd1);
   // kd3:=kd;
    vxd3:=vxd3+xd;
    vyd3:=vyd3+yd;
