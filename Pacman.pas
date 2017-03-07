@@ -417,7 +417,7 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-   { if (getpixel(vxd+17+230, vyd+200) <> kk) then
+    if (getpixel(vxd+17+230, vyd+200) <> kk) then
     begin
       xd:=-10;
       yd:=0;
@@ -444,7 +444,7 @@ begin
       yd:=0;
       kd:=3;
     end;
-       }
+
 end;
 
 {procedure gonitwa(vxd,vyd,kd : integer);
@@ -513,7 +513,7 @@ if (abs(vxd-230-x)<abs(vyd-200-y)) then
 
 
 const
-vdg=5;
+vdg=10;
 
 
 procedure gonitwa (vxd,vyd,kd,vxdp,vydp:integer);
@@ -581,23 +581,24 @@ begin
   if (getpixel((vxd-15),vyd-deltay)) <> kk then yup:=false;
 
 
-  setcolor(red);
- // bar(900,200,1400,900);
-
   setcolor(black);
+  setfillstyle(1,black);
+  bar(1300,200,1600,900);
+
+
 
   str(xright,x1t);
-  str(xleft,x1t);
-  str(yup,x1t);
-  str(ydown,x1t);
+  str(xleft,x2t);
+  str(yup,y1t);
+  str(ydown,y2t);
 
   setcolor(white);
   settextstyle(TriplexFont,HorizDir,3);
 
-  outtextxy(900,200,x1t);
-  outtextxy(900,400,x2t);
-  outtextxy(900,600,y1t);
-  outtextxy(900,800,y2t);
+  outtextxy(1300,200,x1t);
+  outtextxy(1300,400,x2t);
+  outtextxy(1300,600,y1t);
+  outtextxy(1300,800,y2t);
 
 
 
@@ -729,6 +730,13 @@ begin
     deltagy:=vyd-vydp;
     deltagx:=0;
     deltagy:=20;
+
+   if (not xright) and (not xleft) and (not yup) and (not ydown) then
+   begin
+   xd:=0;
+   yd:=0;
+   end;
+
    if (not xright) and (not xleft) and (yup) and (ydown) and (deltagy<>0) then
      begin
        yd:=deltagy;
@@ -7228,7 +7236,7 @@ repeat
    x:=80;
    y:=900;
 
- {  vxd1:=210;
+   {vxd1:=210;
    vyd1:=60;
    kd1:=1;
    vxd2:=340;
@@ -7237,7 +7245,7 @@ repeat
    vxd3:=200;
    vyd3:=200;
    kd1:=1;
-   zmiana:=0; }
+   zmiana:=0;}
 
    x:=520;
    y:=400;
@@ -7260,7 +7268,7 @@ repeat
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
    duch(vxd2,vyd2,7,white,kd2);//2
-  // duch(vxd3,vyd3,3,white,kd3);//3
+   //duch(vxd3,vyd3,3,white,kd3);//3
 
  //  delay(200);
 
@@ -7277,13 +7285,13 @@ repeat
 
    //DUCH1
    gonitwa(vxd1,vyd1,kd1,vxdp1,vydp1);
-  // motionduch(vxd1,vyd1,kd1);
+   motionduch(vxd1,vyd1,kd1);
   // kd1:=kd;
    vxd1:=vxd1+xd;
    vyd1:=vyd1+yd;
    //DUCH2
    gonitwa(vxd2,vyd2,kd2,vxdp2,vydp2);
-  // motionduch(vxd2,vyd2,kd2);
+   motionduch(vxd2,vyd2,kd2);
   // kd2:=kd;
    vxd2:=vxd2+xd;
    vyd2:=vyd2+yd;
