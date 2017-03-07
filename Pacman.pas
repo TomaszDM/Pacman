@@ -10,15 +10,17 @@ var
   x, y, i,j, zmiana,vxp, vyp, iv,vxd1,vyd1, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
 
-  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,ss,g,m,s,hb1,hb2,mb1,
+  switch, godz,min,sek,godz2,min2,sek2,ssek,ssek2,hb1,hb2,mb1, licznik, mb2,sb1,sb2,ssb1,ssb2:word;
 
-  licznik, mb2,sb1,sb2,ssb1,ssb2:word;
+  ss,g,m,s : longint;
+
+
 
   l: int64;  //wyniki czs
 
   kd, kierunek, kd1,kd2,kd3 : byte;
 
-  adel:boolean;
+  adel,tomek:boolean;
 
   k,kt,km:int64;
 
@@ -46,8 +48,8 @@ var
 
   map1: file of int64;
 
-  cojarobie : array[1..2,1..10,1..100] of integer;
-  cojarobie2 : array[1..2,1..10,1..100] of integer;
+  cojarobie : array[1..2,1..10,1..100] of longint;
+  cojarobie2 : array[1..2,1..10,1..100] of longint;
   opcje : array[1..5] of integer;
 
   sett,sur,adv,hero : text;
@@ -3120,7 +3122,19 @@ begin
   reset(hero);
   for j:=1 to 2 do
     begin
-     for i:=1 to 6 do readln(hero,uzytkownikb[j,i]);
+     for i:=1 to 6 do
+      begin
+       repeat
+        v:=1;
+        tomek:=false;
+        readln(hero,v);
+        if l<>0 then uzytkownikbe[v]:=chr(v)
+          else tomek:=true;
+        inc(v);
+       until ((tomek=true) and (v>1)) or (uzytkownikbe='');
+       uzytkownikb[j,i]:=uzytkownikbe;
+       uzytkownikbe:='';
+      end;
     end;
   close(hero);
 
@@ -7319,8 +7333,11 @@ repeat
   g:=godz2-godz;
   m:=min2-min;
   s:=sek2-sek;
-//  ss:=ssek2-ssek;
-  ss:=random(81);
+  ss:=ssek2-ssek;
+{  g:=0;
+  m:=0;
+  s:=0;
+  ss:=random(81); }
   cojarobie2[1,km,1]:=g;
   cojarobie2[1,km,2]:=m;
   cojarobie2[1,km,3]:=s;
@@ -7343,9 +7360,11 @@ repeat
   outtextxy(860,410,':');
   outtextxy(900,410,sse);
   outtextxy(940,410,'. Gratulacje!');
+  i:=1;
 repeat
-  keypressed;
-  until readkey=chr(27);
+
+
+until readkey=chr(27);
 //if keypressed then readkey:=keypressed;
   entermap:=false;
   wena[1,km,1]:=go;
@@ -8404,9 +8423,9 @@ repeat
        uzytkownikbe:=uzytkownikb[j,i];
        for linijka:=1 to length(uzytkownikbe) do
          begin
-          write(hero,uzytkownikbe[linijka]);
-          writeln(hero);
+          writeln(hero,ord(uzytkownikbe[linijka]));
          end;
+      writeln(hero,0);
       end;
     end;
   close(hero);
