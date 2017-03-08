@@ -2949,7 +2949,7 @@ begin
    bar(555+vxd,500+vyd,565+vxd,510+vyd);
    bar(585+vxd,500+vyd,595+vxd,510+vyd);
  end;
-
+{
 function kursormap(xk,yk:word):word;
  begin
    setcolor(kolorop);             //pacman d     gora
@@ -2968,7 +2968,7 @@ function kursormap(xk,yk:word):word;
                 delay(300);
                 fillellipse(210+xk,140+yk,30,30);
  end;
-
+}
 function kursormenutwarz(yk,xk:word):word;
   begin
                 setcolor(kolorop);             //pacman d     gora
@@ -3001,7 +3001,7 @@ function kursormenuzmaz(yk,xk :word):word;
   end;
 
 
-function kursortryb(yk:word):word;
+{function kursortryb(yk:word):word;
  begin
    setcolor(kolorop);             //pacman d     gora
                 setfillstyle(1,kolorop);
@@ -3019,7 +3019,7 @@ function kursortryb(yk:word):word;
                 delay(300);
                 fillellipse(360,360+yk,30,30);
  end;
-
+ }
 function del(z:boolean):boolean;
 
 begin
@@ -3065,8 +3065,9 @@ end;
 
 
 //***************************************************************************\\
-var
-testy : string;
+const
+bin='C:\PacmanSP\bin';
+PacmanSP='C:\PacmanSP';
 
 begin
   clrscr;
@@ -3074,13 +3075,27 @@ begin
 
 
     //notatniki
-  testy:='Wyniki';
+  {$I-}
+  chDir(bin);
+  if IOResult <> 0 then
+   begin
+    {$I-}
+    ChDir(PacmanSP);
+    if IOResult=0 then
+     MkDir('C:\PacmanSP\bin')
+     else
+      begin
+       MkDir('C:\PacmanSP');
+       MkDir('C:\PacmanSP\bin');
+      end;
+   end;
+
+ repeat
   assign(hero,'C:\PacmanSP\bin\hero.txt');
   {$I-}
-  ChDir('C:\PacmanSP\bin');
+  reset(hero);
   if IOResult = 0 then
    begin
-    reset(hero);
     for j:=1 to 2 do
      begin
      for i:=1 to 6 do
@@ -3092,117 +3107,139 @@ begin
    end
    else
     begin
-    {$I-}
-    chDir('C:\PacmanSP');
-    if IOResult = 0 then
-       MkDir('C:\PacmanSP\bin')
-       else
-       MkDir('C:\PacmanSP');
-       MkDir('C:\PacmanSP\bin');
-    rewrite(hero);
-    for i:=1 to 12 do writeln(hero,'NONE');
+     rewrite(hero);
+     for i:=1 to 12 do writeln(hero,'NONE');
     close(hero);
-end;
-{
-assign(sur, 'C:\Wyniki\wyniksur.txt');
-    reset(sur);
-      i:=1;
-      j:=1;
-       while not eof(sur) do
-         begin
-          readln(sur,cojarobie[1,j,i]);
-          inc(i);
-          if i=4 then
-          begin
-          inc(j);
-          i:=1;
-          end;
-         end;
-    close(sur);
-   for j:=1 to 6 do
+  end;
+ until IOResult=0;
+
+ repeat
+  assign(sur, 'C:\PacmanSP\bin\wyniksur.txt');
+  {$I-};
+  reset(sur);
+  if IOResult=0 then
+   begin
+    i:=1;
+    j:=1;
+    while not eof(sur) do
      begin
-      for i:=1 to 4 do
+      readln(sur,cojarobie[1,j,i]);
+      inc(i);
+      if i=4 then
        begin
-         str(cojarobie[1,j,i],bestt[1,j,i]);
-         if i=4 then
-         begin
-           bestt[1,j,i+1]:=uzytkownikb[1,j];
-         end;
+        inc(j);
+        i:=1;
        end;
      end;
+     close(sur);
+   end
+   else
+    begin
+     rewrite(sur);
+     close(sur);
+    end;
+ until IOResult=0;
 
-   assign(adv, 'C:\Wyniki\wynikadv.txt');
-    reset(adv);
-      i:=1;
-      j:=1;
-       while not eof(adv) do
-         begin
-          readln(adv,cojarobie[2,j,i]);
-          inc(i);
-          if i=6 then
-          begin
-          inc(j);
-          i:=1;
-          end;
-         end;
-    close(adv);
-
-for j:=1 to 6 do
+  for j:=1 to 6 do
+   begin
+   for i:=1 to 4 do
+    begin
+     str(cojarobie[1,j,i],bestt[1,j,i]);
+     if i=4 then
      begin
-      for i:=1 to 4 do str(cojarobie[2,j,i],bestt[2,j,i]);
+      bestt[1,j,i+1]:=uzytkownikb[1,j];
      end;
+    end;
+   end;
 
-    assign(sett, 'C:\wyniki\ustawienia.txt');
-    reset(sett);
+  repeat
+   assign(adv, 'C:\PacmanSP\bin\wynikadv.txt');
+   {$I-};
+   reset(adv);
+   if IOResult=0 then
+    begin
+     i:=1;
+     j:=1;
+     while not eof(adv) do
+      begin
+       readln(adv,cojarobie[2,j,i]);
+       inc(i);
+       if i=6 then
+        begin
+         inc(j);
+         i:=1;
+        end;
+      end;
+     close(adv);
+    end
+    else
+    begin
+     rewrite(adv);
+     close(adv);
+    end;
+  until IOResult=0;
 
-        muzyka:=1;
-        diflvl:=1;
-        speedd:=1;
-        kolorop:=14;
+  for j:=1 to 6 do
+   begin
+    for i:=1 to 4 do str(cojarobie[2,j,i],bestt[2,j,i]);
+   end;
 
-       i:=1;
-       while not eof(sett) do
-         begin
-          readln(sett,opcje[i]);
-          inc(i);
-         end;
-       if i>2 then
-       begin
-        muzyka:=opcje[1];
-        diflvl:=opcje[2];
-        speedd:=opcje[3];
-        kolorop:=opcje[4];
-       end;
-       close(sett);
+ repeat
+  assign(sett, 'C:\PacmanSP\bin\options.txt');
+  {$I-}
+  reset(sett);
+  if IOResult=0 then
+   begin
+    i:=1;
+    while not eof(sett) do
+    begin
+     readln(sett,opcje[i]);
+     inc(i);
+    end;
+    if i>2 then
+     begin
+      muzyka:=opcje[1];
+      diflvl:=opcje[2];
+      speedd:=opcje[3];
+      kolorop:=opcje[4];
+     end;
+    close(sett);
+   end
+   else
+    begin
+     rewrite(sett);
+     writeln(sett,1);
+     writeln(sett,1);
+     writeln(sett,1);
+     writeln(sett,12);
+     close(sett);
+    end;
+ until IOResult=0;
 
+ detectgraph(ster, tryb);
+ initgraph(ster, tryb, 'c:\tp\bgi');
 
-
-
-
-        detectgraph(ster, tryb);
-        initgraph(ster, tryb, 'c:\tp\bgi');
-
-      kolor[1]:=random(5-1+1)+1;
-      setcolor(kolor[1]);
-      settextstyle(TriplexFont,HorizDir,5);
-      outtextxy(300,100,'S&P PACMAN');
-      kolor[2]:=random(10-1+1)+1;
-      while kolor[2]=kolor[1] do
-       kolor[2]:=random(10-1+1)+1;
-      setcolor(kolor[2]);
-      settextstyle(TriplexFont,HorizDir,2);
-      outtextxy(50,200,'Witaj przed rozpoczeciem gry wlacz opcje ukrywania paska narzedzi');
-      outtextxy(50,250,'Jak to zrobic:');
-      outtextxy(50,300,'1. Nacisnij prawym przyciskiem myszy na pasku narzedzi;');
-      outtextxy(50,350,'2. Wybierz opcje wlasciwosci;');
-      outtextxy(50,400,'3. Zaznacz okienko "Wlacz autoukrywanie paska zadan";');
-      outtextxy(50,450,'4. Zastosuj.');
-      kolor[3]:=random(10-1+1)+1;
-      while kolor[3]=kolor[2] do
-      kolor[3]:=random(10-1+1)+1;
-      setcolor(kolor[3]);
-      settextstyle(TriplexFont,HorizDir,5);
-      outtextxy(100,500,'Podaj nazwe uzytkownika:');
+ kolor[1]:=random(5-1+1)+1;
+ setcolor(kolor[1]);
+ settextstyle(TriplexFont,HorizDir,5);
+ outtextxy(300,100,'S&P PACMAN');
+ kolor[2]:=random(10-1+1)+1;
+ while kolor[2]=kolor[1] do
+  kolor[2]:=random(10-1+1)+1;
+ setcolor(kolor[2]);
+ settextstyle(TriplexFont,HorizDir,2);
+ outtextxy(50,200,'Witaj przed rozpoczeciem gry wlacz opcje ukrywania paska narzedzi');
+ outtextxy(50,250,'Jak to zrobic:');
+ outtextxy(50,300,'1. Nacisnij prawym przyciskiem myszy na pasku narzedzi;');
+ outtextxy(50,350,'2. Wybierz opcje wlasciwosci;');
+ outtextxy(50,400,'3. Zaznacz okienko "Wlacz autoukrywanie paska zadan";');
+ outtextxy(50,450,'4. Zastosuj.');
+ kolor[3]:=random(10-1+1)+1;
+ while kolor[3]=kolor[2] do
+ kolor[3]:=random(10-1+1)+1;
+ setcolor(kolor[3]);
+ settextstyle(TriplexFont,HorizDir,5);
+ outtextxy(100,500,'Podaj nazwe uzytkownika:');
       i:=0;
       j:=1;
       x:=2;
@@ -3282,7 +3319,6 @@ repeat
 
                           if przycisk=chr(13) then enteer:=true;
                 end;
-
 
      //*************************************
 
@@ -7423,13 +7459,13 @@ until koniec=true;
   opcje[3]:=speedd;
   opcje[4]:=kolorop;
 
-  assign(sett, 'C:\Wyniki\ustawienia.txt');
+  assign(sett, 'C:\PacmanSP\bin\options.txt');
   rewrite(sett);
 
   for i:=1 to 4 do writeln(sett,opcje[i]);
 
   close(sett);
-  assign(sur, 'C:\Wyniki\wyniksur.txt');
+  assign(sur, 'C:\PacmanSP\bin\wyniksur.txt');
   rewrite(sur);
   for i:=1 to 6 do
   begin
@@ -7438,7 +7474,7 @@ until koniec=true;
   close(sur);
 
 
-  assign(hero,'C:\Wyniki\hero.txt');
+  assign(hero,'C:\PacmanSP\bin\hero.txt');
   rewrite(hero);
   for j:=1 to 2 do
     begin
@@ -7448,5 +7484,5 @@ until koniec=true;
        end;
     end;
   close(hero);
- }
+
 end.
