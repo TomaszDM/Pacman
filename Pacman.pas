@@ -7036,6 +7036,7 @@ repeat
 
 
                       REPEAT
+                     // kursormap(xk,yk);
                      if del(adel) then inc(switch);
                      if switch mod 2=0 then kursormenutwarz(yk,xk)
                         else kursormenuzamkniety(yk,xk);
@@ -7114,8 +7115,12 @@ repeat
                              yk:=190;
                              graj:=false;
                           end;
-     if graj=true then
-     begin
+
+                       if graj=true then
+                         begin
+                          // if km=1 then //map1
+                            // begin
+
 
      setfillstyle(1,black);
      bar(1,1,1279,1023);
@@ -7345,10 +7350,16 @@ until readkey=chr(27);
      cojarobie[kt,km,5]:=cojarobie2[kt,km,5];
     end;
     end;
+
+    until entermap:=false;
+    end;
+    end;
+
     until entertryb=true;
     end;
     end;
-  until koniec=true;
+
+until koniec=true;
 
   CloseGraph;
 
@@ -7365,10 +7376,9 @@ until readkey=chr(27);
   close(sett);
   assign(sur, 'C:\Wyniki\wyniksur.txt');
   rewrite(sur);
-
   for i:=1 to 6 do
   begin
-  for j:=1 to 4 do writeln(sur,cojarobie[1,i,j]);
+    for j:=1 to 4 do writeln(sur,cojarobie[1,i,j]);
   end;
   close(sur);
 
@@ -7380,8 +7390,7 @@ until readkey=chr(27);
      for i:=1 to 6 do
       begin
        writeln(hero,bestt[j,i,5]);
-        end;
+       end;
     end;
   close(hero);
-
 end.
