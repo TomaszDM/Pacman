@@ -1,6 +1,6 @@
 program Pacman;
 
-uses crt,wincrt, graph,dos;
+uses crt,wincrt, graph,dos,sysutils;
 
 var
   ster, tryb : integer;
@@ -3065,6 +3065,8 @@ end;
 
 
 //***************************************************************************\\
+var
+testy : string;
 
 begin
   clrscr;
@@ -3072,17 +3074,35 @@ begin
 
 
     //notatniki
-  assign(hero,'C:\Wyniki\hero.txt');
-  reset(hero);
-  for j:=1 to 2 do
-    begin
+  testy:='Wyniki';
+  assign(hero,'C:\PacmanSP\bin\hero.txt');
+  {$I-}
+  ChDir('C:\PacmanSP\bin');
+  if IOResult = 0 then
+   begin
+    reset(hero);
+    for j:=1 to 2 do
+     begin
      for i:=1 to 6 do
       begin
-        readln(hero,uzytkownikb[j,i]);
+       readln(hero,uzytkownikb[j,i]);
       end;
-    end;
-  close(hero);
-
+     end;
+     close(hero);
+   end
+   else
+    begin
+    {$I-}
+    chDir('C:\PacmanSP');
+    if IOResult = 0 then
+       MkDir('C:\PacmanSP\bin')
+       else
+       MkDir('C:\PacmanSP');
+       MkDir('C:\PacmanSP\bin');
+    rewrite(hero);
+    for i:=1 to 12 do writeln(hero,'NONE');
+end;
+{
 assign(sur, 'C:\Wyniki\wyniksur.txt');
     reset(sur);
       i:=1;
@@ -7427,4 +7447,5 @@ until koniec=true;
        end;
     end;
   close(hero);
+ }
 end.

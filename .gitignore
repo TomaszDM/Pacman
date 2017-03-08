@@ -9,3 +9,5 @@ Pacman.bak
 *.o
 Pacman.exe
 *.o
+*.o
+Pacman.exe
