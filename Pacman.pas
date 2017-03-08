@@ -7351,7 +7351,7 @@ until readkey=chr(27);
     end;
     end;
 
-    until entermap:=false;
+    until entermap=false;
     end;
     end;
 
