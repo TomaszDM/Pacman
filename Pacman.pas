@@ -5,7 +5,7 @@ uses crt,wincrt, graph,dos;
 var
   ster, tryb : integer;
 
-  pkts,wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
+  pkts,pkt2,wyraz, go,mi,se,sse,c,uzytkownik,uzytkownik2,zxc,uzytkownikbe: string;
 
   x, y, i,j,i2, zmiana,vxp, vyp, iv,vxd1,vyd1,vxd4,vyd4, vxd2,vyd2,vxd3,vyd3, x1,xd,yd,
   y1,linijka,ko,kolorop,diflvl,speedd,muzyka,tr,xk,yk, vxdp1,vydp1,vxdp2,vydp2,vxdp3,vydp3 : integer;
@@ -7271,7 +7271,13 @@ repeat
   outtextxy(900,410,sse);
   outtextxy(940,410,'. Gratulacje!');
   i:=1;
-
+  if kt=2 then
+    begin
+      str(pkt,pkt2);
+      setcolor(white);
+      settextstyle(TriplexFont,HorizDir,3);
+      outtextxy(110,410,pkt2);
+    end;
 repeat
 
 until readkey=chr(27);
