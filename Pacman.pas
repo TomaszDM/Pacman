@@ -7022,7 +7022,7 @@ repeat
                    graj:=false;
                    setfillstyle(1,black);
                    bar(1,1,getmaxx,getmaxy);
-                   if kt=1 then  //przeskok do minimap
+                   if (kt=1) or (kt=2) then  //przeskok do minimap
                      begin
                       setcolor(random(10-1+1)+1);
                       settextstyle(TriplexFont,HorizDir,8);
@@ -7116,11 +7116,8 @@ repeat
                              graj:=false;
                           end;
 
-                       if graj=true then
-                         begin
-                          // if km=1 then //map1
-                            // begin
-
+ if graj=true then
+    begin
 
      setfillstyle(1,black);
      bar(1,1,1279,1023);
