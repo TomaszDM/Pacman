@@ -594,28 +594,28 @@ begin
 
 
 
-    if (getpixel(x+20, y) <> kk) then
+    if (getpixel(x+10, y) <> kk) and (getpixel(x+10, y) <> 15) then
     begin
       x1:=-1;
       y1:=0;
       kierunek:=2;
     end;
 
-    if (getpixel(x, y+20) <> kk) then
+    if (getpixel(x, y+10) <> kk) and (getpixel(x, y+10) <> 15) then
     begin
       x1:=0;
       y1:=-1;
       kierunek:=3;
     end;
 
-    if (getpixel(x, y-20) <> kk) then
+    if (getpixel(x, y-10) <> kk) and (getpixel(x, y-10) <> 15) then
     begin
       x1:=0;
       y1:=1;
       kierunek:=4;
     end;
 
-    if (getpixel(x-20, y) <> kk) then
+    if (getpixel(x-10, y) <> kk) and (getpixel(x-10, y) <> 15) then
     begin
       x1:=1;
       y1:=0;
@@ -627,28 +627,28 @@ end;
 procedure motionduch(vxd,vyd,kd:integer);
 
 begin
-    if (getpixel(vxd+20+230, vyd+202) <> kk) then
+    if (getpixel(vxd+10+230, vyd+202) <> kk) and (getpixel(vxd+10+230, vyd+202) <> 15) then
     begin
       xd:=-10;
       yd:=0;
       kd:=1;
     end;
 
-    if (getpixel(vxd+230, vyd+20+202) <> kk) then
+    if (getpixel(vxd+230, vyd+10+202) <> kk) and (getpixel(vxd+230, vyd+10+202) <> 15) then
     begin
       xd:=0;
       yd:=-10;
       kd:=2;
     end;
 
-    if (getpixel(vxd+230, vyd-20+202) <> kk) then
+    if (getpixel(vxd+230, vyd-10+202) <> kk) and (getpixel(vxd+230, vyd-10+202) <> 15) then
     begin
       xd:=0;
       yd:=10;
       kd:=4;
     end;
 
-    if (getpixel(vxd-20+230, vyd+202) <> kk) then
+    if (getpixel(vxd-10+230, vyd+202) <> kk) and (getpixel(vxd-10+230, vyd+202) <> 15) then
     begin
       xd:=10;
       yd:=0;
@@ -7159,7 +7159,7 @@ repeat
                      else if km=5 then map5
                           else if km=6 then map6;
 
-   i:=1;
+
 
    if kt=2 then siateczka;
 
@@ -7179,7 +7179,7 @@ repeat
    duch(vxd2,vyd2,0,0,kd2);//2
    duch(vxd3,vyd3,0,0,kd1);//3
 
-   if (kt=2) and (i=20) then siatka(x,y,pkt);
+   if kt=2 then siatka(x,y,pkt);
 
    motion;
 
@@ -7203,7 +7203,7 @@ repeat
    vyd3:=vyd3+yd;
 
   /////////////////////////////////DUCH GONI///////////////////////////////////////
-   inc(i);
+
    inc(zmiana);
    until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
    ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20)) or (ord(z)=27);
