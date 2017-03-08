@@ -1,6 +1,6 @@
 program Pacman;
 
-uses crt,wincrt, graph,dos,sysutils;
+uses crt,wincrt, graph,dos;
 
 var
   ster, tryb : integer;
@@ -52,6 +52,7 @@ var
   cojarobie2 : array[1..2,1..10,1..100] of longint;
   opcje : array[1..5] of integer;
 
+  restart:boolean;
   sett,sur,adv,hero, hero2 : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
 
@@ -64,7 +65,7 @@ var
 
   const
   kk=0;
-
+{
 procedure testmap;
   begin
     setcolor(black);
@@ -76,7 +77,7 @@ procedure testmap;
     bar(300,380,540,420);
     bar(460,240,420,420);
   end;
-
+}
 
 procedure siateczka;
 var
@@ -3092,9 +3093,10 @@ begin
 
  repeat
   assign(hero,'C:\PacmanSP\bin\hero.txt');
+  restart:=false;
   {$I-}
   reset(hero);
-  if IOResult = 0 then
+  if (IOResult = 0) then
    begin
     for j:=1 to 2 do
      begin
@@ -3109,12 +3111,14 @@ begin
     begin
      rewrite(hero);
      for i:=1 to 12 do writeln(hero,'NONE');
-    close(hero);
+     close(hero);
+     restart:=true;
   end;
- until IOResult=0;
+ until not restart;
 
  repeat
   assign(sur, 'C:\PacmanSP\bin\wyniksur.txt');
+  restart:=false;
   {$I-};
   reset(sur);
   if IOResult=0 then
@@ -3137,8 +3141,9 @@ begin
     begin
      rewrite(sur);
      close(sur);
+     restart:=true;
     end;
- until IOResult=0;
+ until not restart;
 
   for j:=1 to 6 do
    begin
@@ -3154,6 +3159,7 @@ begin
 
   repeat
    assign(adv, 'C:\PacmanSP\bin\wynikadv.txt');
+   restart:=false;
    {$I-};
    reset(adv);
    if IOResult=0 then
@@ -3176,8 +3182,10 @@ begin
     begin
      rewrite(adv);
      close(adv);
+     restart:=true;
     end;
-  until IOResult=0;
+  writeln('check');
+  until not restart;
 
   for j:=1 to 6 do
    begin
@@ -3186,35 +3194,45 @@ begin
 
  repeat
   assign(sett, 'C:\PacmanSP\bin\options.txt');
+  restart:=false;
+  writeln('Sprawdzanie pliku');
   {$I-}
   reset(sett);
   if IOResult=0 then
    begin
+    writeln('Istnieje');
     i:=1;
     while not eof(sett) do
     begin
+     writeln('Czytam');
      readln(sett,opcje[i]);
      inc(i);
     end;
     if i>2 then
      begin
+      writeln('Wczytywanie');
       muzyka:=opcje[1];
       diflvl:=opcje[2];
       speedd:=opcje[3];
       kolorop:=opcje[4];
+      writeln('Wczytano');
      end;
     close(sett);
    end
    else
     begin
+     writeln('Nie istnieje');
      rewrite(sett);
-     writeln(sett,1);
-     writeln(sett,1);
-     writeln(sett,1);
-     writeln(sett,12);
+     writeln('Zapisywanie');
+     writeln(sett,'1');
+     writeln(sett,'1');
+     writeln(sett,'1');
+     writeln(sett,'10');
+     writeln('Zapisano');
      close(sett);
+     restart:=true;
     end;
- until IOResult=0;
+ until not restart;
 
  detectgraph(ster, tryb);
  initgraph(ster, tryb, 'c:\tp\bgi');
@@ -3308,16 +3326,13 @@ repeat
                     k:=k+1;
                   end
                   else
-
-                         if przycisk=chr(87) then
-                          begin
-                           kursormenuzmaz(yk,xk);
-                           yk:=yk-100;
-                           k:=k-1;
-                          end
-                          else
-
-                          if przycisk=chr(13) then enteer:=true;
+                  if przycisk=chr(87) then
+                   begin
+                    kursormenuzmaz(yk,xk);
+                    yk:=yk-100;
+                    k:=k-1;
+                   end
+                   else if przycisk=chr(13) then enteer:=true;
                 end;
 
      //*************************************
