@@ -7022,7 +7022,7 @@ repeat
                    graj:=false;
                    setfillstyle(1,black);
                    bar(1,1,getmaxx,getmaxy);
-                   if kt=1 then  //przeskok do minimap
+                   if (kt=1) or (kt=2) then  //przeskok do minimap
                      begin
                       setcolor(random(10-1+1)+1);
                       settextstyle(TriplexFont,HorizDir,8);
@@ -7162,7 +7162,7 @@ repeat
                      else if km=5 then map5
                           else if km=6 then map6;
 
-
+   i:=1;
 
    if kt=2 then siateczka;
 
@@ -7182,7 +7182,7 @@ repeat
    duch(vxd2,vyd2,0,0,kd2);//2
    duch(vxd3,vyd3,0,0,kd1);//3
 
-   if kt=2 then siatka(x,y,pkt);
+   if (kt=2) and (i=20) then siatka(x,y,pkt);
 
    motion;
 
@@ -7206,7 +7206,7 @@ repeat
    vyd3:=vyd3+yd;
 
   /////////////////////////////////DUCH GONI///////////////////////////////////////
-
+   inc(i);
    inc(zmiana);
    until ((abs(x-vxd1-230)<20) and (abs(y-vyd1-200)<20)) or
    ((abs(x-vxd2-230)<20) and (abs(y-vyd2-200)<20)) or (ord(z)=27);
