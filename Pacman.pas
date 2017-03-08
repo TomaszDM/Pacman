@@ -55,6 +55,13 @@ var
   sett,sur,adv,hero, hero2 : text;
   xtekst,ytekst,vxd1tekst,vyd1tekst,vxd2tekst,vyd2tekst,vxd3tekst,vyd3tekst:string;
 
+  znajdzki: array[1..1682] of integer;
+  znajdzki2: array[1..1682] of integer;
+  pozw1,pozw2:boolean;
+  punkty: array[1..41,1..41] of boolean;
+
+
+
   const
   kk=0;
 
@@ -101,10 +108,7 @@ end;
 function siatka(x,y,pkt:longint):integer;
 var
 xsiatka,ysiatka,i,j,k:integer;
-znajdzki: array[1..1682] of integer;
-znajdzki2: array[1..1682] of integer;
-pozw1,pozw2:boolean;
-punkty: array[1..1682] of boolean;
+
 begin
 i:=1;
 if getpixel(30,30)=black then for xsiatka:=1 to 41 do
@@ -113,25 +117,26 @@ if getpixel(30,30)=black then for xsiatka:=1 to 41 do
     begin
         znajdzki[i]:=30*xsiatka;
         znajdzki2[i]:=30*ysiatka;
-        punkty[i]:=false;
-        inc(i);
+        punkty[xsiatka,ysiatka]:=false;
+       // inc(i);
     end;
   end;
 
 j:=(x div 30);
 k:=(y div 30);
-if (znajdzki[j]=x) and (znajdzki2[k]=y)  then
+if (abs(znajdzki[j])-x<10) and (abs(znajdzki2[k])-y<10)  then
       begin
-        punkty[j*k]:=true;
+        punkty[j,k]:=true;
         pkt:=pkt+10;
       end;
 
-
+pkt:=pkt+10;
 j:=1;
 for xsiatka:=1 to 41 do
  begin
   for ysiatka:=1 to 41 do
     begin
+     setcolor(white);
      setfillstyle(1,white);
      pozw1:=false;
      pozw2:=false;
@@ -139,13 +144,13 @@ for xsiatka:=1 to 41 do
      if (getpixel(30*xsiatka,30*ysiatka)=black) and (getpixel(30*xsiatka-2,30*ysiatka)=black) and (getpixel(30*xsiatka+2,30*ysiatka)=black) then pozw1:=true;
      if (getpixel(30*xsiatka,30*ysiatka-2)=black) and (getpixel(30*xsiatka,30*ysiatka+2)=black) then pozw2:=true;
      if pozw1 and pozw2 then
-         if punkty[j]=false then fillellipse(30*xsiatka,30*ysiatka,3,3);
+         if not punkty[xsiatka,ysiatka] then fillellipse(30*xsiatka,30*ysiatka,3,3);
      setcolor(black);
      setfillstyle(1,black);
      bar(490,450,790,564);
      bar(565,564,700,596);
      setcolor(white);
-     inc(j);
+     //inc(j);
     end;
  end;
 
@@ -7170,7 +7175,7 @@ repeat
                 else if km=4 then map4
                      else if km=5 then map5
                           else if km=6 then map6;
-
+   pkt:=0;
    i:=1;
 
    if kt=2 then siateczka;
@@ -7178,6 +7183,7 @@ repeat
    randomize;
    repeat
 
+   if kt=2 then pkt:=pkt+10;
 
    P(kierunek,kolorop);//PACMAN
    duch(vxd1,vyd1,11,white,kd1);//1
@@ -7193,7 +7199,7 @@ repeat
    duch(vxd3,vyd3,0,0,kd1);//3
    duch(vxd4,vyd4,0,0,kd1);
 
-   if (kt=2) and (i=20) then
+   if (kt=2) and (i=10) then
    begin
    siatka(x,y,pkt);
    i:=1;
@@ -7300,7 +7306,8 @@ repeat
       str(pkt,pkt2);
       setcolor(white);
       settextstyle(TriplexFont,HorizDir,3);
-      outtextxy(110,410,pkt2);
+      outtextxy(750,500,pkt2);
+      outtextxy(110,500,'Uzyskales ilosc pkt rowna:');
     end;
 repeat
 
