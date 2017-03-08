@@ -3101,6 +3101,7 @@ begin
        MkDir('C:\PacmanSP\bin');
     rewrite(hero);
     for i:=1 to 12 do writeln(hero,'NONE');
+    close(hero);
 end;
 {
 assign(sur, 'C:\Wyniki\wyniksur.txt');
